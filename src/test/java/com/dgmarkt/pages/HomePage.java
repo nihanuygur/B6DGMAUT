@@ -29,10 +29,6 @@ public class HomePage extends BasePage{
     public WebElement successMessage;
 
 
-
-
-
-
     public void login(){
         closePopupButton.click();
         myAccountMenu.click();
