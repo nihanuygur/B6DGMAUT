@@ -22,10 +22,6 @@ public class LoginStepDef {
         loginPage.login();
     }
 
-    @Then("Verify that the user is on the Home Page")
-    public void verify_that_the_user_is_on_the_home_page() {
-        Assert.assertTrue(homePage.closePopupButton.isDisplayed());
-    }
 
     @Given("The user is on the home page")
     public void theUserIsOnTheHomePage() {
