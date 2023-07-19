@@ -12,12 +12,14 @@ public class HomePage extends BasePage{
     @FindBy(className = "a-close-newsletter")
     public WebElement closePopupButton;
 
-
     @FindBy(xpath = "//*[text()='My Account']")
     public WebElement myAccountMenu;
 
     @FindBy(xpath = "//a[text()='Login']")
     public WebElement loginSubMenu;
+
+    @FindBy(xpath = "//a[text()='Register']")
+    public WebElement registerSubMenu;
 
     @FindBy(xpath = "//input[@id='input-email']")
     public WebElement emailInput;
@@ -63,6 +65,12 @@ public class HomePage extends BasePage{
 
         //clicking to the category
         Driver.get().findElement(By.xpath("//a[text()='"+categoryName+"']")).click();
+    }
+
+    public void navigateToRegisterPage(){
+        closePopupButton.click();
+        myAccountMenu.click();
+        registerSubMenu.click();
     }
 
 
