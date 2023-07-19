@@ -6,10 +6,12 @@ Feature: Add new address into address Book
     When The user enters the given credentials and clicks login button
     Given The user is on the home page
     When  The user enters valid credentials
-    Then The user should be able to login
+    And The user should be able to login
     Given The user clicks My Account menu and navigates to My Account Page
     Then The user clicks Address Book and navigates to the Address Book Entries
     And The user clicks New Address button and navigates to Add Address page
+
+
 
 
   Scenario Outline: Not add address with invalid first name

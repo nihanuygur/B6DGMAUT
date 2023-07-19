@@ -31,7 +31,7 @@ public class LoginStepDef {
     public void the_user_enters_valid_credentials() {
         homePage.login();
     }
-    @Then("The user should be able to login")
+    @And("The user should be able to login")
     public void the_user_should_be_able_to_login() {
         Assert.assertTrue(homePage.successMessage.isDisplayed());
     }
