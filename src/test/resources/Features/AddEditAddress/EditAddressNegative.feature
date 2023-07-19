@@ -21,7 +21,7 @@ Feature: Not modify address in Address Book with invalid data
       |                                   | Stein     | IBM     | Steinstrase 10 | Koln | 5462      |  First Name must be between 1 and 32 characters!     |
       | bnmvcdfghjkiuztrewsdfghjkiuztredf | Stein     | IBM     | Steinstrase 10 | Koln | 5462      |   First Name must be between 1 and 32 characters!    |
 
-  @son
+  @wip
   Scenario Outline: Not edit address with invalid last name
     When The user fills the Address form with data "<First Name>" and "<Last Name>" and "<Company>" and "<Address 1>" and "<City>" and "<Post Code>"
     And The user selects country as "Germany"
