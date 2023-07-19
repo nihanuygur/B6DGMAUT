@@ -33,7 +33,7 @@ Feature: Not modify address in Address Book with invalid data
       | Sarah      | bnmvcdfghjkiuztrewsdfghjkiuztredf | IBM     | Steinstrase 10 | Koln | 5462      |Last Name must be between 1 and 32 characters!|
 
   @wip
-  Scenario Outline: Not eidt address with invalid Address1
+  Scenario Outline: Not edit address with invalid Address1
     When The user fills the Address form with data "<First Name>" and "<Last Name>" and "<Company>" and "<Address 1>" and "<City>" and "<Post Code>"
     And The user selects country as "Germany"
     And The user selects "Nordrhein-Westfalen" as RegionState
