@@ -6,7 +6,7 @@ Feature: Dgmarkt Register Test
     Given The user is on the home page
 
   @B6DGMAUT-3
-  Scenario: Registering as a User with correct information
+  Scenario Outline: Registering as a User with correct information
     Given The User is on the Register Page
     When The User registers by entering  "<firstName>" , "<lastName>" , "<e-mail>" , "<telephone>" and "<password>"
     Then The User should be able to register
