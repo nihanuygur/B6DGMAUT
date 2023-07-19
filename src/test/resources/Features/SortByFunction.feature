@@ -1,3 +1,4 @@
+@B6DGMAUT-1
 Feature: Cat-Subcategory - Sort By Function
 
   Background:
@@ -7,7 +8,7 @@ Feature: Cat-Subcategory - Sort By Function
     When  The user enters valid credentials
     Then The user should be able to login
 
-  @B6DGMAUT-17
+  @B6DGMAUT-17 @wip
   Scenario Outline: Sort By tab initially shows "default"
     Given The user navigates to "<Category Name>" category
     Then The title is "<Category Name>"
@@ -19,7 +20,7 @@ Feature: Cat-Subcategory - Sort By Function
       | Networking      |
       | TV Accessories  |
 
-  @B6DGMAUT-17
+  @B6DGMAUT-18 @wip
   Scenario Outline: the user can sort the products by NAME (A-Z)
     Given The user navigates to "<Category Name>" category
     Then The title is "<Category Name>"
@@ -33,7 +34,7 @@ Feature: Cat-Subcategory - Sort By Function
       | Networking      |
       | TV Accessories  |
 
-  @B6DGMAUT-17
+  @B6DGMAUT-20 @wip
   Scenario Outline: the user can sort the products by NAME (Z-A)
     Given The user navigates to "<Category Name>" category
     Then The title is "<Category Name>"
