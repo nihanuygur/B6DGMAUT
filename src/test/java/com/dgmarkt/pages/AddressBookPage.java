@@ -12,6 +12,11 @@ public class AddressBookPage extends BasePage{
     @FindBy(xpath = "//a[text()='New Address']")
     public WebElement newAddressButton;
 
+    @FindBy(xpath = "//a[text()='Edit']")
+    public WebElement editButton;
+
+
+
 
 
 

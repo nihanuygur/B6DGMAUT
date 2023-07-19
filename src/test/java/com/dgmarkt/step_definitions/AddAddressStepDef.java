@@ -1,9 +1,6 @@
 package com.dgmarkt.step_definitions;
 
-import com.dgmarkt.pages.AccountPage;
-import com.dgmarkt.pages.AddAddressPage;
-import com.dgmarkt.pages.AddressBookPage;
-import com.dgmarkt.pages.HomePage;
+import com.dgmarkt.pages.*;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
@@ -15,15 +12,23 @@ public class AddAddressStepDef {
     AccountPage accountPage=new AccountPage();
     AddressBookPage addressBookPage=new AddressBookPage();
     AddAddressPage addAddressPage=new AddAddressPage();
+    EditAddressPage editAddressPage=new EditAddressPage();
     @Given("The user clicks My Account menu and navigates to My Account Page")
-    public void the_user_clicks_my_account_menu_and_navigates_to_my_account_page() {
+    public void the_user_clicks_my_account_menu_and_navigates_to_my_account_page() throws InterruptedException {
         homePage.navigateMyAccount();
-        Assert.assertTrue(accountPage.accountHeader.isDisplayed());
+       Assert.assertTrue(accountPage.accountHeader.isDisplayed());
 
     }
     @Then("The user clicks Address Book and navigates to the Address Book Entries")
     public void the_user_clicks_address_book_and_navigates_to_the_address_book_entries() {
         accountPage.clickMenu("Address Book");
+        Assert.assertTrue(addressBookPage.addressBookheader.isDisplayed());
+
+
+    }
+    @Given("The user clicks Modify your address book entries and navigates to the Address Book Entries")
+    public void theUserClicksModifyYourAddressBookEntriesAndNavigatesToTheAddressBookEntries() {
+        accountPage.clickMenu("Modify your address book entries");
         Assert.assertTrue(addressBookPage.addressBookheader.isDisplayed());
 
 
@@ -80,7 +85,15 @@ public void theUserClicksContinueButtonAndSeeWarning(String message) {
     }
 
 
+    @And("The user clicks Edit button and navigates to Edit Address page")
+    public void theUserClicksEditButtonAndNavigatesToEditAddressPage() {
+        addressBookPage.editButton.click();
+        Assert.assertTrue(editAddressPage.editAddressHeader.isDisplayed());
+    }
 
-
-
+    @When("The user fills the Address form with data {string} and {string} and {string} and {string} and {string} and {string}")
+    public void theUserFillsTheAddressFormWithDataAndAndAndAndAnd(String firstName, String lastName, String company, String address1, String city, String postcode) {
+       editAddressPage.clearData();
+        addAddressPage.enterData(firstName, lastName,company, address1, city,postcode);
+    }
 }
