@@ -37,6 +37,9 @@ public class HomePage extends BasePage{
     @FindBy(id = "search-by-category")
     public WebElement searchButton;
 
+    @FindBy(xpath = "//button[@id='btn-search-category']")
+    public WebElement searchButton2;
+
     @FindBy(id = "wishlist-total")
     public WebElement wishListButton;
 
@@ -46,6 +49,11 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
+    @FindBy(xpath = "//*[@name='search']")
+    public WebElement searchArea;
+
+    @FindBy(xpath = "(//*[text()='Search - TV'])[2]")
+    public WebElement searchTV;
 
     public void login(){
         closePopupButton.click();
