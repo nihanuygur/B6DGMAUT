@@ -31,6 +31,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[text()=' Congratulation! Login Successfully']")
     public WebElement successMessage;
 
+    @FindBy(css = ".cbk_newsletter")
+    public WebElement dontShowAgain;
+
     @FindBy(id = "logo")
     public WebElement logo;
 
@@ -48,6 +51,7 @@ public class HomePage extends BasePage{
 
 
     public void login(){
+        dontShowAgain.click();
         closePopupButton.click();
         myAccountMenu.click();
         loginSubMenu.click();
