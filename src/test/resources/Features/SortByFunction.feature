@@ -3,9 +3,9 @@ Feature: Cat-Subcategory - Sort By Function
 
   Background:
     Given The user is on the login panel
-    When The user enters the given credentials and clicks login button
-    Given The user is on the home page
-    When  The user enters valid credentials
+    When The user enters the given credentials and clicks login button for the first authentication
+    Given The user is on the main page
+    When  The user enters valid credentials for the user login
     Then The user should be able to login
 
   @B6DGMAUT-37
