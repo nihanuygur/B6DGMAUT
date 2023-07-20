@@ -1,5 +1,7 @@
 package com.dgmarkt.pages;
 
+import com.dgmarkt.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -28,4 +30,11 @@ public class CategoriesBasePage extends BasePage {
     public List<WebElement> productsList;
 
 
+
+    public void selectViewOption(String viewOption) {
+
+        //clicking to the option
+        Driver.get().findElement(By.xpath("//button[@title='"+viewOption+"']")).click();
+    }
 }
+
