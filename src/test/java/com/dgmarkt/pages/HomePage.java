@@ -63,7 +63,7 @@ public class HomePage extends BasePage {
         loginButton.click();
     }
 
-    public void navigateToCategory(String categoryName){
+    public void navigateToCategory(String categoryName) {
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(categoryNav).perform();
@@ -72,37 +72,12 @@ public class HomePage extends BasePage {
         Driver.get().findElement(By.xpath("//a[text()='" + categoryName + "']")).click();
     }
 
-    public void navigateToProduct(String productName) {
-//        Driver.get().findElement(By.xpath("//*[text()='" + productName + "']")).click();
-//        WebElement product = Driver.get().findElement(By.xpath("//*[text()='" + productName + "']"));
-//        WebElement product = Driver.get().findElement(By.xpath("//*[@title='" + productName + "']"));
-//        System.out.println("product.getText() = " + product.getText());
-//        Assert.assertTrue(product.isDisplayed());
-//        // Scrolls down to a product
-//        BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath("//*[text()='" + productName + "']")));
-        BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath("//span[text()='Televisions']")));
-        WebElement product = Driver.get().findElement(By.xpath("//*[contains(@title,'"+productName+"']"));
-//        System.out.println("//*[text()='" + productName + "']/..");
-//        product.click();
-//        JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
-//        executor.executeScript("arguments[0].scrollIntoView(true);", Driver.get().findElement(By.xpath("//*[text()='" + productName + "']")));
-////
-        //hovering over to category navigator
-//        Actions actions = new Actions(Driver.get());
-//        actions.moveToElement(product).perform();
-//
-//         Hover over a product
-//        BrowserUtils.hover(product);
-        Driver.get().findElement(By.xpath("//*[text()='" + productName + "']/../../button")).click();}
 
     public void navigateMyAccount() throws InterruptedException {
         Actions actions = new Actions(Driver.get());
         WebElement dropDown = Driver.get().findElement(By.xpath("//li[@class='nav header-dropdown']"));
         actions.moveToElement(dropDown);
-       actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
-
-
-
+        actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
 
 
     }
@@ -110,5 +85,28 @@ public class HomePage extends BasePage {
     public void goToCartByClickingShoppingCardLink() {
         shoppingCartLink.click();
     }
+
+
+
+    public void chooseProduct(String productName) {
+        WebElement product = Driver.get().findElement(By.xpath("//a[text()='" + productName + "']"));
+        BrowserUtils.hover(product);
+    }
+
+    public void chooseButtonGroup(String groupButton) {
+        WebElement chooseGroupButton = Driver.get().findElement(By.xpath("//span[text()='" + groupButton + "']/.."));
+        chooseGroupButton.click();
+
+    }
+    public void navigateToProduct(String productName, String command) {
+//        WebElement product = Driver.get().findElement(By.xpath("//*[@title='" + productName + "']"));
+        WebElement product = Driver.get().findElement(By.xpath("//a[text()='" + productName + "']"));
+//        BrowserUtils.hover(product);
+        product.click();
+//        WebElement chooseGroupButton = Driver.get().findElement(By.xpath("//span[text()='" + command + "']/.."));
+//        WebElement chooseGroupButton = Driver.get().findElement(By.xpath("//a[@title='" + productName + "']"));
+//        chooseGroupButton.click();
+    }
+
 
 }

@@ -1,3 +1,4 @@
+@B6DGMAUT-7
 Feature: Cart Icon Function
 
   Background:
@@ -8,11 +9,19 @@ Feature: Cart Icon Function
     And The user should be able to login
 
 
-  Scenario: Verify that the User should be able to add products with hover over a product
-  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message
-#    Given The user hover over "Cello C2420G 24\" LED-backlit LCD TV" product and clicks to the Add To Cart icon.
-    Given The user hover over "Cello C2420G" product and clicks to the Add To Cart icon.
-    When The user clicks shopping cart! link from pop-up message and closes the message
-    Then The user should see that the "Cello C2420G 24\" LED-backlit LCD TV" has been added to the Shopping Cart page
 
+  @B6DGMAUT-34
+#  Scenario: Verify that the User should be able to add products with hover over a product
+#  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message
+#    Given The user navigates to "Health & Beauty" category
+#    Given The user hover over "Capsule Plate 6pcs" product and clicks to the "Add to Cart" icon.
+#    When The user clicks shopping cart! link from pop-up message and closes the message
+#    Then The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
+#
+  Scenario: Verify that the User should be able to add products with hover over a product
+  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message from product Page
+    Given The user navigates to "Health & Beauty" category
+    Given The user selects "Capsule Plate 6pcs" product and clicks to the "Add To Cart" icon.
+    When The user clicks shopping cart! link from pop-up message and closes the message
+    Then The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
 
