@@ -1,5 +1,6 @@
 package com.dgmarkt.pages;
 
+import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.ConfigurationReader;
 import com.dgmarkt.utilities.Driver;
 import org.openqa.selenium.By;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     @FindBy(className = "a-close-newsletter")
     public WebElement closePopupButton;
@@ -49,8 +50,10 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
+    @FindBy(xpath = "//*[text()='shopping cart']")
+    public WebElement shoppingCartLink;
 
-    public void login(){
+    public void login() {
         dontShowAgain.click();
         closePopupButton.click();
         myAccountMenu.click();
@@ -60,15 +63,42 @@ public class HomePage extends BasePage{
         loginButton.click();
     }
 
-    public void navigateToCategory(String categoryName){
+    public void navigateToCategory(String categoryName) {
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(categoryNav).perform();
 
         //clicking to the category
-        Driver.get().findElement(By.xpath("//a[text()='"+categoryName+"']")).click();
+        Driver.get().findElement(By.xpath("//a[text()='" + categoryName + "']")).click();
     }
 
+    public void navigateToProduct(String productName) {
+//        Driver.get().findElement(By.xpath("//*[text()='" + productName + "']")).click();
+//        WebElement product = Driver.get().findElement(By.xpath("//*[text()='" + productName + "']"));
+//        WebElement product = Driver.get().findElement(By.xpath("//*[@title='" + productName + "']"));
+//        System.out.println("product.getText() = " + product.getText());
+//        Assert.assertTrue(product.isDisplayed());
+//        // Scrolls down to a product
+//        BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath("//*[text()='" + productName + "']")));
+        BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath("//span[text()='Televisions']")));
+        WebElement product = Driver.get().findElement(By.xpath("//*[contains(@title,'"+productName+"']"));
+//        System.out.println("//*[text()='" + productName + "']/..");
+//        product.click();
+//        JavascriptExecutor executor = (JavascriptExecutor)Driver.get();
+//        executor.executeScript("arguments[0].scrollIntoView(true);", Driver.get().findElement(By.xpath("//*[text()='" + productName + "']")));
+////
+        //hovering over to category navigator
+//        Actions actions = new Actions(Driver.get());
+//        actions.moveToElement(product).perform();
+//
+//         Hover over a product
+//        BrowserUtils.hover(product);
 
+        Driver.get().findElement(By.xpath("//*[text()='" + productName + "']/../../button")).click();
+    }
+
+    public void goToCartByClickingShoppingCardLink() {
+        shoppingCartLink.click();
+    }
 
 }
