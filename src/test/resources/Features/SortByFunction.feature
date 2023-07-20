@@ -1,4 +1,4 @@
-Feature: Cat-Subcategory - Sort By Function
+git Feature: Cat-Subcategory - Sort By Function
 
   Background:
     Given The user is on the login panel
