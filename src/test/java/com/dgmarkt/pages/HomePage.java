@@ -31,6 +31,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[text()=' Congratulation! Login Successfully']")
     public WebElement successMessage;
 
+    @FindBy(css = ".cbk_newsletter")
+    public WebElement dontShowAgain;
+
     @FindBy(id = "logo")
     public WebElement logo;
 
@@ -56,6 +59,7 @@ public class HomePage extends BasePage{
     public WebElement searchTV;
 
     public void login(){
+        dontShowAgain.click();
         closePopupButton.click();
         myAccountMenu.click();
         loginSubMenu.click();
@@ -63,6 +67,8 @@ public class HomePage extends BasePage{
         passwordInput.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
     }
+
+
 
     public void navigateToCategory(String categoryName){
         //hovering over to category navigator
@@ -73,6 +79,13 @@ public class HomePage extends BasePage{
         Driver.get().findElement(By.xpath("//a[text()='"+categoryName+"']")).click();
     }
 
+    public void navigateMyAccount() throws InterruptedException {
+        Actions actions = new Actions(Driver.get());
+        WebElement dropDown = Driver.get().findElement(By.xpath("//li[@class='nav header-dropdown']"));
+        actions.moveToElement(dropDown);
+       actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
+
+    }
 
 
 }
