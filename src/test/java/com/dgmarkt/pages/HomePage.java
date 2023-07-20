@@ -63,7 +63,7 @@ public class HomePage extends BasePage {
         loginButton.click();
     }
 
-    public void navigateToCategory(String categoryName) {
+    public void navigateToCategory(String categoryName){
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(categoryNav).perform();
@@ -93,8 +93,18 @@ public class HomePage extends BasePage {
 //
 //         Hover over a product
 //        BrowserUtils.hover(product);
+        Driver.get().findElement(By.xpath("//*[text()='" + productName + "']/../../button")).click();}
 
-        Driver.get().findElement(By.xpath("//*[text()='" + productName + "']/../../button")).click();
+    public void navigateMyAccount() throws InterruptedException {
+        Actions actions = new Actions(Driver.get());
+        WebElement dropDown = Driver.get().findElement(By.xpath("//li[@class='nav header-dropdown']"));
+        actions.moveToElement(dropDown);
+       actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
+
+
+
+
+
     }
 
     public void goToCartByClickingShoppingCardLink() {
