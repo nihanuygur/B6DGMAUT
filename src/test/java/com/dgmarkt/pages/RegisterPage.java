@@ -1,26 +1,29 @@
 package com.dgmarkt.pages;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RegisterPage extends BasePage{
+
+    Faker faker = new Faker();
     @FindBy(xpath = "//input[@name='firstname']")
-    public WebElement firstName;
+    public WebElement firstNameInput;
 
     @FindBy(xpath = "//input[@name='lastname']")
-    public WebElement lastName;
+    public WebElement lastNameInput;
 
     @FindBy(xpath = "//input[@id='input-register-email']")
-    public WebElement eMail;
+    public WebElement eMailInput;
 
     @FindBy(xpath = "//input[contains(@type, 'tel')]")
-    public WebElement telephone;
+    public WebElement telephoneInput;
 
     @FindBy(xpath = "//input[@id='input-register-password']")
-    public WebElement password;
+    public WebElement passwordInput;
 
     @FindBy(xpath = "//input[@placeholder='Password Confirm']")
-    public WebElement passwordConfirm;
+    public WebElement passwordConfirmInput;
 
     @FindBy(xpath = "//input[contains(@name, 'agree')]")
     public WebElement privacyPolicy;
@@ -49,7 +52,20 @@ public class RegisterPage extends BasePage{
     @FindBy(xpath = "//div[contains(@class, 'password')]")
     public WebElement passwordConfirmErrorMessage;
 
+    @FindBy(xpath = "//p[contains(text(),'Thank')]")
+    public WebElement registrationSuccessfulPage;
 
+public void register( String firstName, String lastName, String telephone, String password){
+    firstNameInput.sendKeys(firstName);
+    lastNameInput.sendKeys(lastName);
+    eMailInput.sendKeys(faker.internet().emailAddress());
+    telephoneInput.sendKeys(telephone);
+    passwordInput.sendKeys(password);
+    passwordConfirmInput.sendKeys(password);
+    privacyPolicy.click();
+    continueButton.click();
+
+}
 
 
 
