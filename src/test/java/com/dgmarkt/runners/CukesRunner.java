@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         glue = "com/dgmarkt/step_definitions",
         dryRun = false,
 
-        tags = "@wip"
+        tags = "@B6DGMAUT-17"
 
 
 )

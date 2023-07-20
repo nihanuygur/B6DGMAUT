@@ -29,6 +29,8 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='inner']/h4")
     public List<WebElement> productsList;
 
+    @FindBy(xpath = "//div[@class='box-price']/p")
+    public List<WebElement> pricesList;
 
 
     public void selectViewOption(String viewOption) {
