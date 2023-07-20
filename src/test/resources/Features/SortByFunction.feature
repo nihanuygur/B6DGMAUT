@@ -1,4 +1,27 @@
-git Feature: Cat-Subcategory - Sort By Function
+@B6DGMAUT-17
+Feature: Cat-Subcategory - Sort By Function
+
+  Users Story: As a user, I should be able to sort the products on my page in the category I want.
+
+  Acceptance Criteria:
+
+  1- Verify that the Sort By tab initially shows "default
+
+  2-Verify that the user can sort the products by NAME (A-Z)
+
+  3-Verify that the user can sort the products by NAME (Z-A)
+
+  4-Verify that the user can sort the products by Price (Low>High)
+
+  5-Verify that the user can sort the products by Price (High>Low)
+
+  6-Verify that the user can sort the products by Rating (Highest)
+
+  7-Verify that the user can sort the products by Rating (Lowest)
+
+  8-Verify that the user can sort the products by MODEL (A-Z)
+
+  9-Verify that the user can sort the products by MODEL (Z-A)
 
   Background:
     Given The user is on the login panel
@@ -7,7 +30,7 @@ git Feature: Cat-Subcategory - Sort By Function
     When  The user enters valid credentials for the user login
     Then The user should be able to login
 
-  @B6DGMAUT-17
+  @B6DGMAUT-37
   Scenario Outline: Sort By tab initially shows "default"
     Given The user navigates to "<Category Name>" category
     Then The title is "<Category Name>"

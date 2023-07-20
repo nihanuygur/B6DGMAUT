@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
 
 
-        tags = " @B6DGMAUT-35"
+
 
         tags = "@B6DGMAUT-17"
 
