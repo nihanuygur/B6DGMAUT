@@ -14,11 +14,11 @@ import org.junit.runner.RunWith;
         glue = "com/dgmarkt/step_definitions",
         dryRun = false,
 
-<<<<<<< HEAD
+
         tags = " @B6DGMAUT-35"
-=======
+
         tags = "@B6DGMAUT-17"
->>>>>>> main
+
 
 
 )
