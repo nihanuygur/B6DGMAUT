@@ -9,7 +9,6 @@ import org.junit.Assert;
 
 public class LoginStepDef {
 
-
     LoginPage loginPage=new LoginPage();
     HomePage homePage=new HomePage();
 
@@ -34,7 +33,4 @@ public class LoginStepDef {
     public void the_user_should_be_able_to_login() {
         Assert.assertTrue(homePage.successMessage.isDisplayed());
     }
-
-
-
 }
