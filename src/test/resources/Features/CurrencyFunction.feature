@@ -9,15 +9,11 @@ Feature: Currency Function
   Scenario Outline: The currency selected by the user matches the currency on the products
     Given The user navigates to "<Category Name>" category
     Then The title is "<Category Name>"
+    Given The user clicks "Currency" button
+    Then The user selects "€ Euro" currency
     Examples:
       | Category Name   |
       | Health & Beauty |
-    Scenario Outline:
-    Given The user clicks "Currency" button
-    Then The sub-category is "<Currency>"
-    Examples:
-      |Currency|
-      | Euro |
 
 
 

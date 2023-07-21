@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class HomePage extends BasePage{
 
     @FindBy(className = "a-close-newsletter")
@@ -67,6 +69,11 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//span[text()='Currency']")
     public WebElement currencyNav;
 
+
+
+
+
+
     public void login(){
         dontShowAgain.click();
         closePopupButton.click();
@@ -96,5 +103,10 @@ public class HomePage extends BasePage{
 
     }
 
+   public void currencySelector(String currencyName){
+       Actions actions = new Actions(Driver.get());
+      actions.moveToElement(Driver.get().findElement(By.xpath("//button[@name='EUR']"))).click().perform();
+
+   }
 
 }
