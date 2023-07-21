@@ -64,6 +64,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
     public WebElement productNotFoundMsg;
 
+    @FindBy(xpath = "//span[text()='Currency']")
+    public WebElement currencyNav;
+
     public void login(){
         dontShowAgain.click();
         closePopupButton.click();

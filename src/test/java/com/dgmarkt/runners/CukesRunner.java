@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 
 
 
-        tags = "@B6DGMAUT-36"
+        tags = " @B6DGMAUT-72"
 
 
 
