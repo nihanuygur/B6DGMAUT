@@ -1,5 +1,8 @@
 package com.dgmarkt.pages;
 
+import com.dgmarkt.utilities.BrowserUtils;
+import com.dgmarkt.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -27,5 +30,33 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='inner']/h4")
     public List<WebElement> productsList;
 
+    @FindBy(xpath = "//*[text()=' Success: You have added ']")
+    public  WebElement popUpWishList;
+
+    public String getTextProduct(String productName) {
+       return Driver.get().findElement(By.xpath("//a[text()='" + productName + "']")).getText();
+
+    }
+    public void chooseProduct(String productName){
+        WebElement product = Driver.get().findElement(By.xpath("//a[text()='" + productName + "']"));
+        BrowserUtils.hover(product);
+    }
+
+
+
+    public void chooseButtonGroup(String groupButton) {
+        WebElement chooseGroupButton = Driver.get().findElement(By.xpath("//span[text()='" + groupButton + "']"));
+        chooseGroupButton.isDisplayed();
+
+    }
+
+    public void clickButtonGroup(String groupButtonClick) {
+    Driver.get().findElement(By.xpath("//span[text()='" + groupButtonClick + "']/..")).click();
+
+    }
+    public void clickMainButtonGroup(String groupMainButtonClick) {
+        Driver.get().findElement(By.xpath("//span[text()='" + groupMainButtonClick + "']/../..")).click();
+
+    }
 
 }
