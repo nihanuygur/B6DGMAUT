@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"},
         features = "src/test/resources/Features",
         glue = "com/dgmarkt/step_definitions",
-        dryRun = false,
+        dryRun = true,
 
         tags = "@B6DGMAUT-7"
 

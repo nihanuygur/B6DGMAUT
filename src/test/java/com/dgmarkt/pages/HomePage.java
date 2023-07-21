@@ -82,31 +82,11 @@ public class HomePage extends BasePage {
 
     }
 
-    public void goToCartByClickingShoppingCardLink() {
-        shoppingCartLink.click();
-    }
 
 
 
-    public void chooseProduct(String productName) {
-        WebElement product = Driver.get().findElement(By.xpath("//a[text()='" + productName + "']"));
-        BrowserUtils.hover(product);
-    }
 
-    public void chooseButtonGroup(String groupButton) {
-        WebElement chooseGroupButton = Driver.get().findElement(By.xpath("//span[text()='" + groupButton + "']/.."));
-        chooseGroupButton.click();
 
-    }
-    public void navigateToProduct(String productName, String command) {
-//        WebElement product = Driver.get().findElement(By.xpath("//*[@title='" + productName + "']"));
-        WebElement product = Driver.get().findElement(By.xpath("//a[text()='" + productName + "']"));
-//        BrowserUtils.hover(product);
-        product.click();
-//        WebElement chooseGroupButton = Driver.get().findElement(By.xpath("//span[text()='" + command + "']/.."));
-//        WebElement chooseGroupButton = Driver.get().findElement(By.xpath("//a[@title='" + productName + "']"));
-//        chooseGroupButton.click();
-    }
 
 
 }

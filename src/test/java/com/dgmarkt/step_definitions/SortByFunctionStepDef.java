@@ -55,5 +55,20 @@ public class SortByFunctionStepDef {
         Assert.assertTrue(flag);
     }
 
+    @Then("Verify that the products are actually sorted by {string}")
+    public void verifyThatTheProductsAreActuallySortedBy(String sortingType) {
+        List<WebElement> list = categoryPage.pricesList;
 
+        boolean flag = true;
+        for (int i = 0; i < list.size() - 1; i++) {
+            String a = list.get(i).getText();
+            String b = list.get(i + 1).getText();
+            System.out.println(a + "---" + b);
+            if (sortingType.equals("Price (Low > High)") ? a.compareTo(b) > 0 : a.compareTo(b) < 0) {
+                flag = false;
+                break;
+            }
+        }
+        Assert.assertTrue(flag);
+    }
 }

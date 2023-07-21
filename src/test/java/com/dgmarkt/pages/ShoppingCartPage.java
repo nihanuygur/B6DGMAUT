@@ -9,8 +9,5 @@ public class ShoppingCartPage extends BasePage{
 
 
 
-    public Boolean isProductAdded(String productName){
-        WebElement product = Driver.get().findElement(By.xpath("//*[text()='" + productName + "']"));
-        return product.isDisplayed();
-    }
+
 }
