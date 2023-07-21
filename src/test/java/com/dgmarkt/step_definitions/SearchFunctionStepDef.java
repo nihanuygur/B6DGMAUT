@@ -23,9 +23,10 @@ public class SearchFunctionStepDef {
     }
 
     @Then("The user should write {string} at searching area and click {string}")
-    public void theUserShouldWriteAtSearchingAreaAndClick(String TV, String searchButton2) {
+    public void theUserShouldWriteAtSearchingAreaAndClick(String TV, String searchButton2) throws InterruptedException {
 
         homePage.searchArea.sendKeys("TV");
+        Thread.sleep(500);
         homePage.searchButton2.click();
     }
 
@@ -34,6 +35,24 @@ public class SearchFunctionStepDef {
     @And("Verify that {string} screen is displayed")
     public void verifyThatScreenIsDisplayed(String searchTV) {
         Assert.assertEquals(homePage.searchTV.getText(), "Search - TV");
+    }
+
+
+    @And("Verify that displayed {string} contains TV")
+    public void verifyThatDisplayedContainsTV(String productTV) {
+        Assert.assertTrue(homePage.productTV.isDisplayed());
+    }
+    @Then("The user can write {string} at searching area and click {string}")
+    public void theUserCanWriteAtSearchingAreaAndClick(String apple, String searchButton2) throws InterruptedException {
+        homePage.searchArea.sendKeys("apple");
+        Thread.sleep(500);
+        homePage.searchButton2.click();
+    }
+    @And("Verify that {string} message is displayed")
+    public void verifyThatMessageIsDisplayed(String productNotFoundMsg) {
+
+        Assert.assertTrue(homePage.productNotFoundMsg.isDisplayed());
+
     }
 
 

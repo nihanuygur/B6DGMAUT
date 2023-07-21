@@ -58,6 +58,12 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "(//*[text()='Search - TV'])[2]")
     public WebElement searchTV;
 
+    @FindBy(xpath = "(//a[contains(text(),'TV')])[2]")
+    public WebElement productTV;
+
+    @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
+    public WebElement productNotFoundMsg;
+
     public void login(){
         dontShowAgain.click();
         closePopupButton.click();
