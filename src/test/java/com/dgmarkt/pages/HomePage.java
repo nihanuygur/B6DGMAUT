@@ -45,10 +45,14 @@ public class HomePage extends BasePage{
 
     @FindBy(id = "cart")
     public WebElement cartButton;
-
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
+    @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
+    public WebElement loginWarningMessage;
+
+    @FindBy(css = ".forgotten")
+    public WebElement forgottenPassword;
 
     public void login(){
         dontShowAgain.click();
@@ -59,9 +63,15 @@ public class HomePage extends BasePage{
         passwordInput.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
     }
-
-
-
+    public void loginForNegativeScenarios(String mail, String password){
+        dontShowAgain.click();
+        closePopupButton.click();
+        myAccountMenu.click();
+        loginSubMenu.click();
+        emailInput.sendKeys(mail);
+        passwordInput.sendKeys(password);
+        loginButton.click();
+    }
     public void navigateToCategory(String categoryName){
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());

@@ -33,4 +33,16 @@ public class LoginStepDef {
     public void the_user_should_be_able_to_login() {
         Assert.assertTrue(homePage.successMessage.isDisplayed());
     }
+
+    @When("The user enters {string} and {string}")
+    public void theUserEntersAnd(String email, String password) {
+        homePage.loginForNegativeScenarios(email,password);
+    }
+
+    @Then("The user should be able to see warning message")
+    public void theUserShouldBeAbleToSeeWarningMessage() {
+        Assert.assertTrue(homePage.loginWarningMessage.isDisplayed());
+        String warningMessage= homePage.loginWarningMessage.getText();
+        System.out.println("warningMessage = " + warningMessage);
+    }
 }
