@@ -1,3 +1,4 @@
+@B6DGMAUT-5
 Feature: Search Icon Function
   Background:
     Given The user is on the login panel
