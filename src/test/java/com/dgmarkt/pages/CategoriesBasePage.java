@@ -30,15 +30,54 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='inner']/h4")
     public List<WebElement> productsList;
 
-
     @FindBy(xpath = "//div[@class='box-price']/p")
     public List<WebElement> pricesList;
+
+    @FindBy(css = ".product-item")
+    public WebElement firstProduct;
+
+
+    @FindBy(css = ".button-cart")
+    public WebElement firstAddToCart;
+
+
+    public void goToProductPage(String productName) {
+        WebElement product = Driver.get().findElement(By.xpath("//img[@title='" + productName + "']"));
+        BrowserUtils.scrollToElement(product);
+        BrowserUtils.clickWithJS(product);
+        Driver.get().findElement(By.xpath("//button[@id='button-cart']")).click();
+    }
+
+    public void hoverAndAddProduct(String productName) {
+
+        WebElement product = Driver.get().findElement(By.xpath("(//img[contains(@title,'" + productName + "')])[2]"));
+        BrowserUtils.scrollToElement(product);
+
+        BrowserUtils.hover(product);
+        WebElement cart = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Add to Cart']/.."));
+
+        cart.click();
+    }
+
+    /**
+     * This method is created for select a product with its order/index number on a category page,
+     * Exp: first product in the category
+     *         5. product in the category
+     * @param number
+     */
+    public void selectProductWithIndex(int number) {
+        WebElement product = Driver.get().findElement(By.xpath("(//*[@class='product-item'])[" + number + "]"));
+        BrowserUtils.scrollToElement(product);
+        BrowserUtils.hover(product);
+        WebElement addToCartButton = Driver.get().findElement(By.xpath("(//*[@class='button-cart'])[" + number + "]"));
+        addToCartButton.click();
+    }
 
     @FindBy(xpath = "//*[text()=' Success: You have added ']")
     public  WebElement popUpWishList;
 
     public String getTextProduct(String productName) {
-       return Driver.get().findElement(By.xpath("//a[text()='" + productName + "']")).getText();
+        return Driver.get().findElement(By.xpath("//a[text()='" + productName + "']")).getText();
 
     }
     public void chooseProduct(String productName){
@@ -55,7 +94,7 @@ public class CategoriesBasePage extends BasePage {
     }
 
     public void clickButtonGroup(String groupButtonClick) {
-    Driver.get().findElement(By.xpath("//span[text()='" + groupButtonClick + "']/..")).click();
+        Driver.get().findElement(By.xpath("//span[text()='" + groupButtonClick + "']/..")).click();
 
     }
     public void clickMainButtonGroup(String groupMainButtonClick) {
@@ -64,3 +103,4 @@ public class CategoriesBasePage extends BasePage {
     }
 
 }
+
