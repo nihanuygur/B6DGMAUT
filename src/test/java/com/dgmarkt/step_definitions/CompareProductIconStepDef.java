@@ -19,8 +19,8 @@ public class CompareProductIconStepDef {
 
     @Then("The user hover over the product and clicks compare icon")
     public void the_user_hover_over_the_product_and_clicks_compare_icon() {
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
-        jse.executeScript("window.scrollBy(0,500)");
+//        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+//        jse.executeScript("window.scrollBy(0,500)");
 
         JavascriptExecutor executor = (JavascriptExecutor) Driver.get();
         executor.executeScript("arguments[0].scrollIntoView(true);", healthAndBeautyPage.product1);
@@ -41,11 +41,13 @@ public class CompareProductIconStepDef {
 
     @Then("The user close pop up message")
     public void theUserClosePopUpMessage() {
-        categoriesBasePage.closePopupButton.click();
+         categoriesBasePage.closePopupButton.click();
+
 
     }
 
     @Then("The user see only one product on the list in product comparison page")
     public void theUserSeeOnlyOneProductOnTheListInProductComparisonPage() {
+
     }
 }

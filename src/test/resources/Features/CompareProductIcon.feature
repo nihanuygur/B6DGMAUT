@@ -40,11 +40,10 @@ Feature:  Cat-Subcategory-Compare this Product icon function
     Given The user navigates to "<Category Name>" category
     Then The title is "<Category Name>"
     And The user hover over the product and clicks compare icon
-    Given The user navigates to "<Category Name>" category
-    Then The title is "<Category Name>"
-    And The user hover over the product and clicks compare icon
-    Then The user clicks product comparison link and see the product in the page
-#  Then The user see only one product on the list in product comparison page
+   Then The user close pop up message
+     And The user hover over the product and clicks compare icon
+  Then The user clicks product comparison link and see the product in the page
+  Then The user see only one product on the list in product comparison page
     Examples:
       | Category Name   |
       | Health & Beauty |
