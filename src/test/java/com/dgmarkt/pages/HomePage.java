@@ -52,7 +52,6 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
-
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
@@ -80,6 +79,11 @@ public class HomePage extends BasePage {
     public WebElement viewCartButton;
 
 
+    @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
+    public WebElement loginWarningMessage;
+
+    @FindBy(css = ".forgotten")
+    public WebElement forgottenPassword;
 
     public void login() {
         dontShowAgain.click();
@@ -88,6 +92,15 @@ public class HomePage extends BasePage {
         loginSubMenu.click();
         emailInput.sendKeys(ConfigurationReader.get("email"));
         passwordInput.sendKeys(ConfigurationReader.get("password"));
+        loginButton.click();
+    }
+    public void loginForNegativeScenarios(String mail, String password){
+        dontShowAgain.click();
+        closePopupButton.click();
+        myAccountMenu.click();
+        loginSubMenu.click();
+        emailInput.sendKeys(mail);
+        passwordInput.sendKeys(password);
         loginButton.click();
     }
 
