@@ -103,10 +103,11 @@ public class HomePage extends BasePage{
 
     }
 
-   public void currencySelector(String currencyName){
-       Actions actions = new Actions(Driver.get());
-      actions.moveToElement(Driver.get().findElement(By.xpath("//button[@name='EUR']"))).click().perform();
+    public void selectCurrency(String currencyType){
+        WebElement currency = Driver.get().findElement(By.xpath("//button[contains(text(),'" + currencyType + "')]"));
+        currency.click();
 
+    }
    }
 
-}
+

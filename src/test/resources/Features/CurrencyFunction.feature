@@ -7,13 +7,17 @@ Feature: Currency Function
     Then The user should be able to login
   @B6DGMAUT-72
   Scenario Outline: The currency selected by the user matches the currency on the products
-    Given The user navigates to "<Category Name>" category
-    Then The title is "<Category Name>"
+    Given The user navigates to "<CategoryName>" category
+    Then The title is "<CategoryName>"
     Given The user clicks "Currency" button
-    Then The user selects "€ Euro" currency
+    Then The user selects"<CurrencyType>" currency
+    And Verify that currency selected "<CurrencyType>" by the user matches the currency on the products
     Examples:
-      | Category Name   |
-      | Health & Beauty |
+
+    | CategoryName    | CurrencyType |
+    | Health & Beauty | €        |
+    | Televisions     | £     |
+    | Networking      | $     |
 
 
 

@@ -30,4 +30,7 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='box-price']/p")
     public List<WebElement> pricesList;
 
+    @FindBy(xpath = "//*[@class='price']")
+    public WebElement firstProductsPrice;
+
 }
