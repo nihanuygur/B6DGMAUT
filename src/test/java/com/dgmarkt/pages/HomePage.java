@@ -44,7 +44,7 @@ public class HomePage extends BasePage {
     @FindBy(id = "wishlist-total")
     public WebElement wishListButton;
 
-    @FindBy(id = "cart")
+    @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
 
     @FindBy(xpath = "//span[text()='Category']")
@@ -52,6 +52,17 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[text()='shopping cart']")
     public WebElement shoppingCartLink;
+
+
+    @FindBy(xpath = "//*[text()=' Success: You have added ']")
+    public WebElement successfullyAddedMessage;
+    @FindBy(css = "button.close")
+    public WebElement closeMessageButton;
+
+    @FindBy(xpath = "//*[text()=' View Cart']")
+    public WebElement viewCartButton;
+
+
 
     public void login() {
         dontShowAgain.click();

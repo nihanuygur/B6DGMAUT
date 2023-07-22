@@ -12,6 +12,7 @@ public class ProductPage extends BasePage{
 
     @FindBy(css = "button#button-cart")
     public WebElement addToCartBtn;
+
     @FindBy(xpath = "//input[@name='quantity']")
     public WebElement quantityInput;
 
