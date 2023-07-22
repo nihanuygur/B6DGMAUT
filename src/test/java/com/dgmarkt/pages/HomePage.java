@@ -1,5 +1,6 @@
 package com.dgmarkt.pages;
 
+import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.ConfigurationReader;
 import com.dgmarkt.utilities.Driver;
 import org.openqa.selenium.By;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     @FindBy(className = "a-close-newsletter")
     public WebElement closePopupButton;
@@ -40,13 +41,40 @@ public class HomePage extends BasePage{
     @FindBy(id = "search-by-category")
     public WebElement searchButton;
 
+    @FindBy(xpath = "//button[@id='btn-search-category']")
+    public WebElement searchButton2;
+
     @FindBy(id = "wishlist-total")
     public WebElement wishListButton;
 
-    @FindBy(id = "cart")
+    @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
+
+    @FindBy(xpath = "//*[@name='search']")
+    public WebElement searchArea;
+
+    @FindBy(xpath = "(//*[text()='Search - TV'])[2]")
+    public WebElement searchTV;
+
+    @FindBy(xpath = "(//a[contains(text(),'TV')])[2]")
+    public WebElement productTV;
+
+    @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
+    public WebElement productNotFoundMsg;
+    @FindBy(xpath = "//*[text()='shopping cart']")
+    public WebElement shoppingCartLink;
+
+
+    @FindBy(xpath = "//*[text()=' Success: You have added ']")
+    public WebElement successfullyAddedMessage;
+    @FindBy(css = "button.close")
+    public WebElement closeMessageButton;
+
+    @FindBy(xpath = "//*[text()=' View Cart']")
+    public WebElement viewCartButton;
+
 
     @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
     public WebElement loginWarningMessage;
@@ -54,7 +82,7 @@ public class HomePage extends BasePage{
     @FindBy(css = ".forgotten")
     public WebElement forgottenPassword;
 
-    public void login(){
+    public void login() {
         dontShowAgain.click();
         closePopupButton.click();
         myAccountMenu.click();
@@ -72,20 +100,22 @@ public class HomePage extends BasePage{
         passwordInput.sendKeys(password);
         loginButton.click();
     }
-    public void navigateToCategory(String categoryName){
+
+    public void navigateToCategory(String categoryName) {
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(categoryNav).perform();
 
         //clicking to the category
-        Driver.get().findElement(By.xpath("//a[text()='"+categoryName+"']")).click();
+        Driver.get().findElement(By.xpath("//a[text()='" + categoryName + "']")).click();
     }
+
 
     public void navigateMyAccount() throws InterruptedException {
         Actions actions = new Actions(Driver.get());
         WebElement dropDown = Driver.get().findElement(By.xpath("//li[@class='nav header-dropdown']"));
         actions.moveToElement(dropDown);
-       actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
+        actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
 
     }
 
