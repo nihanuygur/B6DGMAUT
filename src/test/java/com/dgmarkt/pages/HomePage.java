@@ -41,6 +41,9 @@ public class HomePage extends BasePage {
     @FindBy(id = "search-by-category")
     public WebElement searchButton;
 
+    @FindBy(xpath = "//button[@id='btn-search-category']")
+    public WebElement searchButton2;
+
     @FindBy(id = "wishlist-total")
     public WebElement wishListButton;
 
@@ -50,6 +53,17 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
+    @FindBy(xpath = "//*[@name='search']")
+    public WebElement searchArea;
+
+    @FindBy(xpath = "(//*[text()='Search - TV'])[2]")
+    public WebElement searchTV;
+
+    @FindBy(xpath = "(//a[contains(text(),'TV')])[2]")
+    public WebElement productTV;
+
+    @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
+    public WebElement productNotFoundMsg;
     @FindBy(xpath = "//*[text()='shopping cart']")
     public WebElement shoppingCartLink;
 
@@ -90,14 +104,7 @@ public class HomePage extends BasePage {
         actions.moveToElement(dropDown);
         actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
 
-
     }
-
-
-
-
-
-
 
 
 }
