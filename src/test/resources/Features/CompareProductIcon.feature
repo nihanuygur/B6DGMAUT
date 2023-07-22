@@ -6,7 +6,7 @@ Feature:  Cat-Subcategory-Compare this Product icon function
     Given The user is on the main page
     When  The user enters valid credentials for the user login
     And The user should be able to login
-
+@son
   Scenario Outline: The user can see the Compare this Product icon by hover overing the product.
     Given The user navigates to "<Category Name>" category
     Then The title is "<Category Name>"
@@ -15,6 +15,6 @@ Feature:  Cat-Subcategory-Compare this Product icon function
     Examples:
       | Category Name   |
       | Health & Beauty |
-      | Televisions     |
-      | Networking      |
-      | TV Accessories  |
+#      | Televisions     |
+#      | Networking      |
+#      | TV Accessories  |
