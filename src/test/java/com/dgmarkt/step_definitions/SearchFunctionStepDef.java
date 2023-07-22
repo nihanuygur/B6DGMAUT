@@ -5,10 +5,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 
 public class SearchFunctionStepDef {
     HomePage homePage = new HomePage();
-
+    WebDriver driver;
 
     @Given("The user clicks to {string}")
     public void the_user_clicks_to(String searchButton) {
@@ -47,9 +49,18 @@ public class SearchFunctionStepDef {
         homePage.searchArea.sendKeys("apple");
         Thread.sleep(500);
         homePage.searchButton2.click();
-    }
+
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//
+//            js.executeScript("window.scrollTo(0, 1500)");
+
+
+
+        }
+
+
     @And("Verify that {string} message is displayed")
-    public void verifyThatMessageIsDisplayed(String productNotFoundMsg) {
+    public void verifyThatMessageIsDisplayed(String productNotFoundMsg) throws InterruptedException {
 
         Assert.assertTrue(homePage.productNotFoundMsg.isDisplayed());
 
