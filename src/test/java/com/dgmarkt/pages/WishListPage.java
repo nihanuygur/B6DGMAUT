@@ -7,6 +7,6 @@ import java.util.List;
 
 public class WishListPage {
 
-    @FindBy(xpath = "//i[@class='fa fa-times']/../..")
+    @FindBy(xpath = "//a[@data-original-title='Remove']")
     public List<WebElement> productsWishList;
 }

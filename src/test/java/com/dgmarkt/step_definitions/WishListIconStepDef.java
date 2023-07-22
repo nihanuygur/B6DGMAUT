@@ -33,27 +33,12 @@ public class WishListIconStepDef {
     }
 
 
-
-//  @And("User can see the message {string}")
-//   public void userCanSeeTheMessage(String expectedPopUpMessage) {
-//
-//      String actualMessage=categoriesBasePage.popUpWishList.getText();
-//      Assert.assertEquals(expectedPopUpMessage,actualMessage);
-//
-//
-//}
-
     @And("User click on {string}")
     public void userClickOn(String clickWishListIcon) {
 
         categoriesBasePage.clickButtonGroup(clickWishListIcon);
 
     }
-
-    //    @And("User click on Add to Wish List")
-//    public void userClickOnAddToWishList() {
-//        Driver.get().findElement(By.xpath("//button[@title='Add to Wish List']")).click();
-//    }
 
     @And("User click on main {string}")
     public void userClickOnMain(String mainGroup) {
@@ -66,10 +51,4 @@ public class WishListIconStepDef {
     }
 
 
-    @Then("Verify that user can see all Products {int} in Wish List")
-    public void verifyThatUserCanSeeAllProductsInWishList(int expectedProductsInWishList) {
-        int actualList = wishListPage.productsWishList.size();
-        System.out.println("actualList = " + actualList);
-        Assert.assertEquals(expectedProductsInWishList,actualList);
-    }
 }

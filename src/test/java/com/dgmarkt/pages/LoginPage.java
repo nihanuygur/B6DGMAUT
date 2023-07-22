@@ -17,8 +17,6 @@ public class LoginPage extends BasePage{
     public WebElement loginButton;
 
 
-
-
     public void login(){
 
         emailInput.sendKeys(ConfigurationReader.get("firstAuthEmail"));

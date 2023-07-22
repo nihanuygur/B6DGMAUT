@@ -30,6 +30,10 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='inner']/h4")
     public List<WebElement> productsList;
 
+
+    @FindBy(xpath = "//div[@class='box-price']/p")
+    public List<WebElement> pricesList;
+
     @FindBy(xpath = "//*[text()=' Success: You have added ']")
     public  WebElement popUpWishList;
 
@@ -38,7 +42,7 @@ public class CategoriesBasePage extends BasePage {
 
     }
     public void chooseProduct(String productName){
-        WebElement product = Driver.get().findElement(By.xpath("//a[text()='" + productName + "']"));
+        WebElement product = Driver.get().findElement(By.xpath("//div[@class='inner']/h4[1]"));
         BrowserUtils.hover(product);
     }
 

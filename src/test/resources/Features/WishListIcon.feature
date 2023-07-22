@@ -23,7 +23,7 @@ Feature: Cat-Subcategory-Add to Wish List icon function
       | TV Accessories  | Belkin adapter cable                 |
       | Networking      | ASUS PCE-AC51 - network adapter      |
 
-
+  @B6DGMAUT-21
   Scenario Outline:
     Given User choose Category "<Category Name>"
     When  User hover over the Product "<Product>"
