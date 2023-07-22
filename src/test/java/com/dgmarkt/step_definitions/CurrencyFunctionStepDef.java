@@ -22,15 +22,16 @@ public class CurrencyFunctionStepDef {
         homePage.currencyNav.click();
     }
 
-
-
     @Then("The user selects{string} currency")
-    public void theUserSelectsCurrency(String currencyName) {
+    public void theUserSelectsCurrency(String currencyName) throws InterruptedException {
         homePage.selectCurrency(currencyName);
+        Thread.sleep(1000);
     }
 
     @And("Verify that currency selected {string} by the user matches the currency on the products")
     public void verifyThatCurrencySelectedByTheUserMatchesTheCurrencyOnTheProducts(String currencyName) {
+
+        BrowserUtils.scrollToElement(categoriesBasePage.firstProductsPrice);
       Assert.assertTrue(categoriesBasePage.firstProductsPrice.getText().contains(currencyName));
     }
 }
