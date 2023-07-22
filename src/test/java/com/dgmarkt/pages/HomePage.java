@@ -51,10 +51,20 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
-
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
+    @FindBy(xpath = "//*[@name='search']")
+    public WebElement searchArea;
+
+    @FindBy(xpath = "(//*[text()='Search - TV'])[2]")
+    public WebElement searchTV;
+
+    @FindBy(xpath = "(//a[contains(text(),'TV')])[2]")
+    public WebElement productTV;
+
+    @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
+    public WebElement productNotFoundMsg;
     @FindBy(xpath = "//*[text()='shopping cart']")
     public WebElement shoppingCartLink;
 
@@ -68,17 +78,6 @@ public class HomePage extends BasePage{
     public WebElement viewCartButton;
 
 
-    @FindBy(xpath = "//*[@name='search']")
-    public WebElement searchArea;
-
-    @FindBy(xpath = "(//*[text()='Search - TV'])[2]")
-    public WebElement searchTV;
-
-    @FindBy(xpath = "(//a[contains(text(),'TV')])[2]")
-    public WebElement productTV;
-
-    @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
-    public WebElement productNotFoundMsg;
 
     @FindBy(xpath = "//span[text()='Currency']")
     public WebElement currencyNav;
@@ -87,6 +86,11 @@ public class HomePage extends BasePage{
 
 
 
+    @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
+    public WebElement loginWarningMessage;
+
+    @FindBy(css = ".forgotten")
+    public WebElement forgottenPassword;
 
     public void login() {
         dontShowAgain.click();
@@ -95,6 +99,15 @@ public class HomePage extends BasePage{
         loginSubMenu.click();
         emailInput.sendKeys(ConfigurationReader.get("email"));
         passwordInput.sendKeys(ConfigurationReader.get("password"));
+        loginButton.click();
+    }
+    public void loginForNegativeScenarios(String mail, String password){
+        dontShowAgain.click();
+        closePopupButton.click();
+        myAccountMenu.click();
+        loginSubMenu.click();
+        emailInput.sendKeys(mail);
+        passwordInput.sendKeys(password);
         loginButton.click();
     }
 
@@ -115,12 +128,6 @@ public class HomePage extends BasePage{
         actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
 
     }
-
-
-
-
-
-
 
     public void selectCurrency(String currencyType){
         WebElement currency = Driver.get().findElement(By.xpath("//button[contains(text(),'" + currencyType + "')]"));
