@@ -67,6 +67,10 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div/a[text()='product comparison']")
     public WebElement productComparisonLink;
 
+    @FindBy(xpath = "//button[@data-dismiss='alert']")
+    public WebElement closePopupButton;
+
+
 
     public void goToProductPage(String productName) {
         WebElement product = Driver.get().findElement(By.xpath("//img[@title='" + productName + "']"));
