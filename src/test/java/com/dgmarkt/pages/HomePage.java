@@ -49,6 +49,12 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
+    @FindBy(xpath = "//a[contains(text(),'Cello')]")
+    public WebElement productCello;
+
+    @FindBy(xpath = "//a[contains(text(),'Cello')]/../../../../div/div/div/div/button[3]")
+    public WebElement quickViewIconCello;
+
 
     public void login(){
         dontShowAgain.click();
