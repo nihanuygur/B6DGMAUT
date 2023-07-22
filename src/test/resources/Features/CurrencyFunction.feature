@@ -14,10 +14,10 @@ Feature: Currency Function
     And Verify that currency selected "<CurrencyType>" by the user matches the currency on the products
     Examples:
 
-    | CategoryName    | CurrencyType |
-    | Health & Beauty | €        |
-    | Televisions     | £     |
-    | Networking      | $     |
+     | CategoryName    | CurrencyType |
+     | Health & Beauty | €        |
+     | Televisions     | £     |
+     | Networking      | $     |
 
 
 
