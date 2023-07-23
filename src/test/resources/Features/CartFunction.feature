@@ -1,4 +1,4 @@
-@B6DGMAUT-7
+
 Feature: Cart Icon Function
   Users Story: As a user, I should be able to manage the cart by clicking the cart icon
   Acceptance Criteria :
@@ -27,9 +27,7 @@ Feature: Cart Icon Function
     When The user clicks shopping cart! link from pop-up message and closes the message
     Then The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
 
-
-
-
+  @B6DGMAUT-7
   Scenario Outline: Verify that the User should be able to add products with hover over a product
   and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message
     Given The user navigates to "<CategoryName>" category
@@ -50,3 +48,6 @@ Feature: Cart Icon Function
     Then The user should see product successfully added message
     And  The user should be able to access the cart from the view cart button
     And The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
+
+
+

@@ -2,6 +2,7 @@ package com.dgmarkt.step_definitions;
 
 import com.dgmarkt.pages.CategoriesBasePage;
 import com.dgmarkt.pages.HomePage;
+import com.dgmarkt.pages.ShoppingCartPage;
 import com.dgmarkt.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,6 +15,7 @@ public class CartIconStepDef {
 
     HomePage homePage = new HomePage();
     CategoriesBasePage categoriesBasePage = new CategoriesBasePage();
+    ShoppingCartPage shoppingCartPage=new ShoppingCartPage();
 
 
     @Given("The user selects {string} product and clicks to the {string} icon.")
@@ -27,8 +29,8 @@ public class CartIconStepDef {
     }
 
     @Then("The user should see that the {string} has been added to the Shopping Cart page")
-    public void the_user_should_see_that_the_has_been_added_to_the_shopping_cart_page(String product) {
-        Assert.assertTrue(Driver.get().findElement(By.xpath("//*[@class='text-left'][contains(text(),'" + product + "')]")).isDisplayed());
+    public void the_user_should_see_that_the_has_been_added_to_the_shopping_cart_page(String productName) {
+        Assert.assertTrue(shoppingCartPage.isProductAdded(productName));
     }
 
     @Given("The user hover over {string} product and clicks to the {string} icon.")

@@ -1,4 +1,6 @@
 package com.dgmarkt.pages;
+import com.dgmarkt.utilities.Driver;
+import org.openqa.selenium.By;
 
 import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.Driver;
@@ -33,6 +35,29 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='box-price']/p")
     public List<WebElement> pricesList;
 
+    @FindBy(xpath = "//div[@class='list-group-item']")
+   public WebElement PriceSlider;
+
+    //@FindBy(xpath = "//div[@style='left: 8.09399%; width: 77.5457%;']")
+     //public WebElement FullSlider;
+
+
+
+    public void selectViewOption(String viewOption) {
+
+        //clicking to the option
+        Driver.get().findElement(By.xpath("//button[@title='" + viewOption + "']")).click();
+    }
+    public void selectPriceRage(double priceRange) {
+
+        //clicking to the option
+        Driver.get().findElement(By.xpath("//div[@style='left:'" + priceRange + "%;']")).click();
+    }
+    public void selectPriceRageMax(double priceRangeMax) {
+
+        //clicking to the option
+        Driver.get().findElement(By.xpath("//div[@style='left:'" + priceRangeMax + "%;']")).click();
+    }
     @FindBy(css = ".product-item")
     public WebElement firstProduct;
 
@@ -50,7 +75,9 @@ public class CategoriesBasePage extends BasePage {
 
     public void hoverAndAddProduct(String productName) {
 
-        WebElement product = Driver.get().findElement(By.xpath("(//img[contains(@title,'" + productName + "')])[2]"));
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')][contains(@class,'responsive')]"));
+//        WebElement product = Driver.get().findElement(By.xpath("(//img[contains(@title,'" + productName + "')])[2]"));
+//        WebElement product = Driver.get().findElement(By.xpath("(//img[contains(@title,'" + productName + "')])"));
         BrowserUtils.scrollToElement(product);
 
         BrowserUtils.hover(product);
@@ -74,3 +101,4 @@ public class CategoriesBasePage extends BasePage {
     }
 
 }
+
