@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
@@ -106,13 +107,16 @@ public class CategoriesBasePage extends BasePage {
 
     public void hoverAndCompareProduct(String productName) {
 
-        WebElement product= Driver.get().findElement(By.xpath(" @FindBy(xpath = \"//a/img[@title='"+productName+"']\")"));
-        BrowserUtils.scrollToElement(product);
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+        jse.executeScript("window.scrollBy(0,800)");
 
-        BrowserUtils.hover(product);
-        WebElement compareIcon = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Compare this Product']/.."));
+        WebElement product= Driver.get().findElement(By.xpath("//a/img[@title='"+productName+"']"));
+        jse.executeScript("arguments[0].scrollIntoView(true);", product);
 
-        compareIcon.click();
+        WebElement compareButton= Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Compare this Product']/.."));
+        jse.executeScript("arguments[0].click();", compareButton);
+
+
     }
 
 }
