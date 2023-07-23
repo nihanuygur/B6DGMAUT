@@ -22,6 +22,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//a[text()='Login']")
     public WebElement loginSubMenu;
 
+    @FindBy(xpath = "//a[text()='Register']")
+    public WebElement registerSubMenu;
+
     @FindBy(xpath = "//input[@id='input-email']")
     public WebElement emailInput;
 
@@ -111,7 +114,9 @@ public class HomePage extends BasePage{
         loginButton.click();
     }
 
-    public void navigateToCategory(String categoryName) {
+
+
+    public void navigateToCategory(String categoryName){
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(categoryNav).perform();
@@ -120,6 +125,12 @@ public class HomePage extends BasePage{
         Driver.get().findElement(By.xpath("//a[text()='" + categoryName + "']")).click();
     }
 
+
+    public void navigateToRegisterPage(){
+        closePopupButton.click();
+        myAccountMenu.click();
+        registerSubMenu.click();
+    }
 
     public void navigateMyAccount() throws InterruptedException {
         Actions actions = new Actions(Driver.get());
@@ -133,7 +144,9 @@ public class HomePage extends BasePage{
         WebElement currency = Driver.get().findElement(By.xpath("//button[contains(text(),'" + currencyType + "')]"));
         currency.click();
 
+
+}
     }
-   }
+
 
 
