@@ -24,12 +24,10 @@ public class PriceSliderStepDef extends CategoriesBasePage  {
 
     @And("user enters a  {string} and {string}")
     public void userEntersAAnd(double priceRange, double priceRangeMax) throws InterruptedException {
-        Driver.get().findElement(By.xpath("//div[@style='left: 8.09399%; width: 77.5457%;']")).click();
+        //Driver.get().findElement(By.xpath("//div[@style='left: 8.09399%; width: 77.5457%;']")).click();
         Thread.sleep(1000);
-
-
-
-
+        categoryPage.selectPriceRage(priceRange);
+        categoryPage.selectPriceRageMax(priceRangeMax);
     }
 
 
