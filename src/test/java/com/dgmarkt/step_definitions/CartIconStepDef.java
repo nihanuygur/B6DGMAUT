@@ -18,15 +18,15 @@ public class CartIconStepDef {
     ShoppingCartPage shoppingCartPage=new ShoppingCartPage();
 
 
-    @Given("The user selects {string} product and clicks to the {string} icon.")
-    public void the_user_selects_product_and_clicks_to_the_icon(String productName, String command)  {
+    @Given("The user selects {string} product and clicks to the Add to Cart icon.")
+    public void the_user_selects_product_and_clicks_to_the_icon(String productName)  {
         categoriesBasePage.goToProductPage(productName);
     }
 
     @When("The user clicks shopping cart! link from pop-up message and closes the message")
     public void the_user_clicks_shopping_cart_link_from_pop_up_message_and_closes_the_message()  {
 
-        Driver.get().findElement(By.xpath("//a[normalize-space()='shopping cart']")).click();
+        categoriesBasePage.shoppingCartLink.click();
     }
 
     @Then("The user should see that the {string} has been added to the Shopping Cart page")
