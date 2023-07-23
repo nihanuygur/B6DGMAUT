@@ -40,6 +40,11 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(css = ".button-cart")
     public WebElement firstAddToCart;
 
+    @FindBy(xpath = "//button[text()='×']")
+    public WebElement popUpClose;
+
+    @FindBy(xpath = "//*[text()=' Success: You have added ']")
+    public WebElement popUpMessage;
 
     public void goToProductPage(String productName) {
         WebElement product = Driver.get().findElement(By.xpath("//img[@title='" + productName + "']"));
@@ -48,15 +53,16 @@ public class CategoriesBasePage extends BasePage {
         Driver.get().findElement(By.xpath("//button[@id='button-cart']")).click();
     }
 
-    public void hoverAndAddProduct(String productName) {
+    public void hoverAndAddProduct(String productName, String groupButton) {
 
-        WebElement product = Driver.get().findElement(By.xpath("(//img[contains(@title,'" + productName + "')])[2]"));
+        //WebElement product = Driver.get().findElement(By.xpath("(//img[contains(@title,'" + productName + "')])[2]"));
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')][contains(@class,'responsive')]"));
         BrowserUtils.scrollToElement(product);
 
         BrowserUtils.hover(product);
-        WebElement cart = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Add to Cart']/.."));
+      WebElement groupButtons = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='"+groupButton+"']/.."));
 
-        cart.click();
+      groupButtons.click();
     }
 
     /**
@@ -73,18 +79,17 @@ public class CategoriesBasePage extends BasePage {
         addToCartButton.click();
     }
 
-    @FindBy(xpath = "//*[text()=' Success: You have added ']")
-    public  WebElement popUpWishList;
-
     public String getTextProduct(String productName) {
         return Driver.get().findElement(By.xpath("//a[text()='" + productName + "']")).getText();
 
     }
-    public void chooseProduct(String productName){
-        WebElement product = Driver.get().findElement(By.xpath("//div[@class='inner']/h4[1]"));
-        BrowserUtils.hover(product);
-    }
+    public void chooseProduct(String productName) throws InterruptedException {
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')][contains(@class,'responsive')]"));
+       BrowserUtils.scrollToElement(product);
+       Thread.sleep(1000);
+       BrowserUtils.hover(product);
 
+    }
 
 
     public void chooseButtonGroup(String groupButton) {

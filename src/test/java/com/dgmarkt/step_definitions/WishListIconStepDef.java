@@ -23,31 +23,32 @@ public class WishListIconStepDef {
        homePage.navigateToCategory(chooseCategory);
     }
     @When("User hover over the Product {string}")
-    public void user_hover_over_the_product(String chooseProduct) {
-        categoriesBasePage.chooseProduct(chooseProduct);
+    public void userHoverOverTheProduct(String productName) throws InterruptedException {
+        categoriesBasePage.chooseProduct(productName);
+
     }
     @Then("Verify that user can see {string}")
-    public void verify_that_user_can_see(String wishListIcon) {
-
+    public void verifyThatUserCanSee(String wishListIcon) {
         categoriesBasePage.chooseButtonGroup(wishListIcon);
     }
 
-
-    @And("User click on {string}")
-    public void userClickOn(String clickWishListIcon) {
-
-        categoriesBasePage.clickButtonGroup(clickWishListIcon);
-
+    @Given("The user hover over {string} product and clicks to the {string} icon")
+    public void theUserHoverOverProductAndClicksToTheIcon(String chooseProductByName, String groupName) {
+        categoriesBasePage.hoverAndAddProduct(chooseProductByName,groupName);
     }
 
-    @And("User click on main {string}")
-    public void userClickOnMain(String mainGroup) {
-        categoriesBasePage.clickMainButtonGroup(mainGroup);
-    }
-    @Then("Verify that user can see {string} in Wish List")
-    public void verifyThatUserCanSeeInWishList(String expectedProduct) {
-        Assert.assertEquals(expectedProduct,categoriesBasePage.getTextProduct(expectedProduct));
 
+
+    @When("The user clicks wish list! link from pop-up message and closes the message")
+    public void theUserClicksWishListLinkFromPopUpMessageAndClosesTheMessage() {
+        Driver.get().findElement(By.xpath("//a[normalize-space()='wish list']")).click();
+    }
+
+
+    @Then("The user should see that the {string} has been added to the Wish List page")
+    public void theUserShouldSeeThatTheHasBeenAddedToTheWishListPage(String product) {
+        //Assert.assertEquals(expectedProduct,categoriesBasePage.getTextProduct(product));
+        Assert.assertTrue(Driver.get().findElement(By.xpath("//*[@class='text-left'][contains(text(),'" + product + "')]")).isDisplayed());
     }
 
 
