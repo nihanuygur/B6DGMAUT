@@ -20,7 +20,7 @@ Feature: Dgmarkt Register Test
       | tekin                            | serdan                           | 05614616161                      | a123                 |
       | sungur                           | serdan                           | 04614611967                      | a1b2c3d4e5f6g7h8j9k! |
 
-  @B6DGMAUT-3
+
   Scenario Outline: Preventing registration as a User due to incorrect, incomplete and empty information.
     Given The User is on the Register Page
     When The User registers by entering  "<firstName>" , "<lastName>" ,"<email>" ,"<telephone>", "<password>" and "<passwordConfirm>"
@@ -38,10 +38,27 @@ Feature: Dgmarkt Register Test
       | ali                               | serdan                            | serd16@.com      | 05455456576                       | Test120! | Test120!        | E-Mail Address does not appear to be valid!     |
       | ali                               | serdan                            | serd16@gmail     | 05455456576                       | Test120! | Test120!        | E-Mail Address does not appear to be valid!     |
       | ali                               | serdan                            | serd16@gmail.    | 05455456576                       | Test120! | Test120!        | E-Mail Address does not appear to be valid!     |
+      | ali                               | serdan                            | serd16@gmail.com |                                   | Test120  | Test120         | Telephone must be between 3 and 32 characters!  |
       | ali                               | serdan                            | serd16@gmail.com | 61                                | Test120! | Test120!        | Telephone must be between 3 and 32 characters!  |
       | ali                               | serdan                            | serd16@gmail.com | 123456789012345678901234567890123 | Test120! | Test120!        | Telephone must be between 3 and 32 characters!  |
+      | ali                               | serdan                            | serd16@gmail.com | 05455456576                       |          | Test120!        | Password must be between 4 and 20 characters!   |
+      | ali                               | serdan                            | serd16@gmail.com | 05455456576                       | Test120! |                 | Password confirmation does not match password!  |
       | ali                               | serdan                            | serd16@gmail.com | 05455456576                       | 123      | 123             | Password must be between 4 and 20 characters!   |
       | ali                               | serdan                            | serd16@gmail.com | 05455456576                       | 1234     | 12345           | Password confirmation does not match password!  |
+      |                                   |                                   |                  |                                   |          |                 | First Name must be between 1 and 32 characters! |
+
+
+  Scenario: Failure to register as a User when the Privacy Policy checkbox is not clicked
+    Given The User is on the Register Page
+    When The User registers by entering  "ali" , "serdan" ,"serd16@gmail.com" ,"05455456576 ", "Test01234!" and does not click on the Privacy Policy checkbox
+    Then The warning message contains "Warning: You must agree to the Privacy Policy!"
+
+  @B6DGMAUT-3
+  Scenario: The user cannot re-register with a previously registered e-mail address.
+    Given The User is on the Register Page
+    When The User registers by entering  "ali" , "serdan" ,"userone@gmail.com" ,"05455456576 ", "Test01234!"
+    Then The warning message contains "Warning: E-Mail Address is already registered!"
+
 
 
 

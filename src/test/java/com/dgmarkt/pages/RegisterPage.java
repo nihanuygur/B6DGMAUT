@@ -1,8 +1,6 @@
 package com.dgmarkt.pages;
 
-import com.dgmarkt.utilities.Driver;
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -33,11 +31,14 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@value='Continue']")
     public WebElement continueButton;
 
-    @FindBy(xpath = "//*[text()='login form']")
-    public WebElement loginForm;
-
     @FindBy(xpath = "//div[contains(@class, 'text-danger')]")
     public WebElement errorMessage;
+
+    @FindBy(xpath = "//span[contains(text(),'to the Privacy')]")
+    public WebElement PP_ErrorMessage;
+
+    @FindBy(xpath = "//*[contains(text(),'registered')]")
+    public WebElement re_registerErrorMessage;
 
     @FindBy(xpath = "//button[contains(@onclick, 'account')]")
     public WebElement registrationSuccessfulPage;
@@ -53,7 +54,6 @@ public class RegisterPage extends BasePage {
         continueButton.click();
     }
 
-
     public void register2(String firstName, String lastName, String email, String telephone, String password, String passwordConfirm) {
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
@@ -64,6 +64,5 @@ public class RegisterPage extends BasePage {
         privacyPolicy.click();
         continueButton.click();
     }
-
 
 }
