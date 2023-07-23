@@ -1,4 +1,4 @@
-@B6DGMAUT-22 @done
+@B6DGMAUT-22
 Feature:  Cat-Subcategory-Compare this Product icon function
 
   Background:
@@ -8,7 +8,7 @@ Feature:  Cat-Subcategory-Compare this Product icon function
     When  The user enters valid credentials for the user login
     And The user should be able to login
 
-
+@B6DGMAUT-79
   Scenario Outline: The user can see the Compare this Product icon by hover overing the product.
     Given The user navigates to "<CategoryName>" category
     Then The title is "<CategoryName>"
@@ -21,7 +21,7 @@ Feature:  Cat-Subcategory-Compare this Product icon function
       | Networking      | ASUS USB-BT400 - network adapter                      |
       | TV Accessories  | Belkin High Speed HDMI Cable with Ethernet            |
 
-
+@B6DGMAUT-80
   Scenario Outline: The user can add products to the comparison list when the user clicks the Compare This Product icon.
     Given The user navigates to "<CategoryName>" category
     Then The title is "<CategoryName>"
@@ -35,7 +35,7 @@ Feature:  Cat-Subcategory-Compare this Product icon function
       | Networking      | ASUS PCE-AX58BT               |
       | TV Accessories  | Belkin HDMI cable - 1.5 m     |
 
-
+@B6DGMAUT-82
   Scenario Outline: The user should not be able to add the same product more than once to the comparison list.
     Given The user navigates to "<CategoryName>" category
     Then The title is "<CategoryName>"
@@ -50,7 +50,7 @@ Feature:  Cat-Subcategory-Compare this Product icon function
       | Networking      | ASUS PCE-AX58BT               |
       | TV Accessories  | Belkin HDMI cable - 1.5 m     |
 
-
+@B6DGMAUT-81
   Scenario Outline: The user should not be able to add more than four products to the comparison list.
     Given The user navigates to "<CategoryName>" category
     Then The title is "<CategoryName>"
