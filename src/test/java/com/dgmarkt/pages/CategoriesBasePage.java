@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
@@ -63,6 +64,13 @@ public class CategoriesBasePage extends BasePage {
 
     @FindBy(css = ".button-cart")
     public WebElement firstAddToCart;
+
+    @FindBy(xpath = "//div/a[text()='product comparison']")
+    public WebElement productComparisonLink;
+
+    @FindBy(xpath = "//button[@data-dismiss='alert']")
+    public WebElement closePopupButton;
+
 
     @FindBy(xpath = "//button[text()='×']")
     public WebElement popUpClose;
@@ -129,6 +137,20 @@ public class CategoriesBasePage extends BasePage {
     }
     public void clickMainButtonGroup(String groupMainButtonClick) {
         Driver.get().findElement(By.xpath("//span[text()='" + groupMainButtonClick + "']/../..")).click();
+
+    }
+
+    public void hoverAndCompareProduct(String productName) {
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+        jse.executeScript("window.scrollBy(0,800)");
+
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')][contains(@class,'responsive')]"));
+        jse.executeScript("arguments[0].scrollIntoView(true);", product);
+
+        WebElement compareButton= Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Compare this Product']/.."));
+        jse.executeScript("arguments[0].click();", compareButton);
+
 
     }
 

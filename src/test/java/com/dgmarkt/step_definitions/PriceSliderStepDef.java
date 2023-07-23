@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.xml.sax.Locator;
 
 
@@ -28,8 +29,6 @@ public class PriceSliderStepDef extends CategoriesBasePage  {
         categoryPage.selectPriceRage(priceRange);
         categoryPage.selectPriceRageMax(priceRangeMax);
     }
-
-
 
 
 //        JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.get();
