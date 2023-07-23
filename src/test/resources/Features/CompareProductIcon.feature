@@ -8,7 +8,7 @@ Feature:  Cat-Subcategory-Compare this Product icon function
     When  The user enters valid credentials for the user login
     And The user should be able to login
 
-
+@sonn
   Scenario Outline: The user can see the Compare this Product icon by hover overing the product.
     Given The user navigates to "<CategoryName>" category
     Then The title is "<CategoryName>"
@@ -17,6 +17,7 @@ Feature:  Cat-Subcategory-Compare this Product icon function
     Examples:
       | CategoryName    | ProductName                                           |
       | Health & Beauty | Nicky Clarke Hair Therapy NSS043 Hair Straightener V2 |
+  #    | Televisions     | Cello C4020F 40" LED-backlit LCD TV                   |
       | Networking      | ASUS USB-BT400 - network adapter                      |
       | TV Accessories  | Belkin High Speed HDMI Cable with Ethernet            |
 

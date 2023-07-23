@@ -26,12 +26,18 @@ public class CompareProductIconStepDef {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
         jse.executeScript("window.scrollBy(0,800)");
 
-        WebElement product= Driver.get().findElement(By.xpath("//a/img[@title='"+productName+"']"));
+       // bunu yeni yazdim nihan dan sonra
+
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')][contains(@class,'responsive')]"));
+
+    //    WebElement product= Driver.get().findElement(By.xpath("//a/img[@title='"+productName+"']"));
         jse.executeScript("arguments[0].scrollIntoView(true);", product);
 
         WebElement compareButton= Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Compare this Product']/.."));
         Thread.sleep(3000);
         Assert.assertTrue(compareButton.isEnabled());
+
+
     }
 
     @Then("The user close pop up message")
@@ -55,6 +61,9 @@ public class CompareProductIconStepDef {
 
         WebElement product= Driver.get().findElement(By.xpath("//table/tbody/tr/td[text()='"+productName+"']"));
         Assert.assertTrue(product.isDisplayed());
+
+
+
 
     }
     @And("The user hover over the {string} and add two times compare icon")
