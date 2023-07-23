@@ -144,7 +144,7 @@ public class CategoriesBasePage extends BasePage {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
         jse.executeScript("window.scrollBy(0,800)");
 
-        WebElement product= Driver.get().findElement(By.xpath("//a/img[@title='"+productName+"']"));
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')][contains(@class,'responsive')]"));
         jse.executeScript("arguments[0].scrollIntoView(true);", product);
 
         WebElement compareButton= Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Compare this Product']/.."));

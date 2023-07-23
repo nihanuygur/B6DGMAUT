@@ -26,11 +26,8 @@ public class CompareProductIconStepDef {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
         jse.executeScript("window.scrollBy(0,800)");
 
-       // bunu yeni yazdim nihan dan sonra
-
         WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')][contains(@class,'responsive')]"));
 
-    //    WebElement product= Driver.get().findElement(By.xpath("//a/img[@title='"+productName+"']"));
         jse.executeScript("arguments[0].scrollIntoView(true);", product);
 
         WebElement compareButton= Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Compare this Product']/.."));
@@ -40,15 +37,10 @@ public class CompareProductIconStepDef {
 
     }
 
-    @Then("The user close pop up message")
-    public void theUserClosePopUpMessage() {
-         categoriesBasePage.closePopupButton.click();
-
-    }
-
     @And("The user hover over the {string} and clicks compare icon")
     public void theUserHoverOverTheAndClicksCompareIcon(String productName) {
-        categoriesBasePage.hoverAndCompareProduct(productName);
+
+        categoriesBasePage.hoverAndAddProduct(productName,"Compare this Product");
 
     }
 
@@ -59,7 +51,7 @@ public class CompareProductIconStepDef {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
         jse.executeScript("window.scrollBy(0,600)");
 
-        WebElement product= Driver.get().findElement(By.xpath("//table/tbody/tr/td[text()='"+productName+"']"));
+        WebElement product= Driver.get().findElement(By.xpath("//table/tbody/tr/td[contains(text(),'"+productName+"')]"));
         Assert.assertTrue(product.isDisplayed());
 
 
@@ -92,7 +84,7 @@ public class CompareProductIconStepDef {
     @And("The user hover over the {string} and {string} and {string} and {string} and {string} add to comparison")
     public void theUserHoverOverTheAndAndAndAndAddTwoTimesCompareIcon(String product1, String product2, String product3, String product4, String product5) {
 
-        categoriesBasePage.hoverAndCompareProduct(product1);
+      categoriesBasePage.hoverAndCompareProduct(product1);
 
         categoriesBasePage.closePopupButton.click();
         categoriesBasePage.hoverAndCompareProduct(product2);
@@ -106,6 +98,7 @@ public class CompareProductIconStepDef {
         categoriesBasePage.closePopupButton.click();
         categoriesBasePage.hoverAndCompareProduct(product5);
 
+
     }
     @Then("The user clicks product comparison see only four products on the list in product comparison page")
     public void theUserClicksProductComparisonSeeOnlyFourProductsOnTheListInProductComparisonPage() throws InterruptedException {
@@ -115,4 +108,4 @@ public class CompareProductIconStepDef {
         String expectedNumber="5";
         Assert.assertEquals(expectedNumber,actualNumber);
     }
-}
+  }
