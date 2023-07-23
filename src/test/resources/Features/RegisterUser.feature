@@ -1,3 +1,4 @@
+@B6DGMAUT-3
 Feature: Dgmarkt Register Test
 
   Background:
@@ -53,7 +54,7 @@ Feature: Dgmarkt Register Test
     When The User registers by entering  "ali" , "serdan" ,"serd16@gmail.com" ,"05455456576 ", "Test01234!" and does not click on the Privacy Policy checkbox
     Then The warning message contains "Warning: You must agree to the Privacy Policy!"
 
-  @B6DGMAUT-3
+
   Scenario: The user cannot re-register with a previously registered e-mail address.
     Given The User is on the Register Page
     When The User registers by entering  "ali" , "serdan" ,"userone@gmail.com" ,"05455456576 ", "Test01234!"
