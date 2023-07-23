@@ -104,5 +104,16 @@ public class CategoriesBasePage extends BasePage {
         addToCartButton.click();
     }
 
+    public void hoverAndCompareProduct(String productName) {
+
+        WebElement product= Driver.get().findElement(By.xpath(" @FindBy(xpath = \"//a/img[@title='"+productName+"']\")"));
+        BrowserUtils.scrollToElement(product);
+
+        BrowserUtils.hover(product);
+        WebElement compareIcon = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName + "')]/../../../..//span[text()='Compare this Product']/.."));
+
+        compareIcon.click();
+    }
+
 }
 

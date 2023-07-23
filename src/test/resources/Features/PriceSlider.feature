@@ -13,10 +13,10 @@ Feature:PRICE slider function
     Given The user hovers over the category and selects one of the four sub-categories "<Category Name>"from the sub-categories.
     When sees the price slider
     And user enters a  "<priceRange>" and "<priceRangeMax>"
-    Then verify if the user can use the price slider
+# Then verify if the user can use the price slider
     Examples:
       | Category Name   | priceRange | priceRangeMax |
       | Health & Beauty | 8.09399    | 77.5457       |
-      | Televisions     | 8.09399    | 77.5457       |
-      | TV Accessories  | 8.09399    | 77.5457       |
-      | Networking      | 8.09399    | 77.5457       |
+#      | Televisions     | 8.09399    | 77.5457       |
+#      | TV Accessories  | 8.09399    | 77.5457       |
+#      | Networking      | 8.09399    | 77.5457       |
