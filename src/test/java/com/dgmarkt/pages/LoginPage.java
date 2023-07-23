@@ -21,6 +21,7 @@ public class LoginPage extends BasePage{
         passwordInput.sendKeys(ConfigurationReader.get("firstAuthPassword"));
         loginButton.click();
 
+
     }
 
 }
