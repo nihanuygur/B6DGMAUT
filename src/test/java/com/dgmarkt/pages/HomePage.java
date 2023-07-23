@@ -82,6 +82,9 @@ public class HomePage extends BasePage {
     @FindBy(css = ".forgotten")
     public WebElement forgottenPassword;
 
+    @FindBy(xpath = "//*[text()='Logout']")
+    public WebElement logout;
+
     public void login() {
         dontShowAgain.click();
         closePopupButton.click();
