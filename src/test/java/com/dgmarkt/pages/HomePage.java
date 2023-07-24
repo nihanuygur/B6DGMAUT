@@ -40,20 +40,42 @@ public class HomePage extends BasePage{
     @FindBy(id = "search-by-category")
     public WebElement searchButton;
 
+    @FindBy(xpath = "//button[@id='btn-search-category']")
+    public WebElement searchButton2;
+
     @FindBy(id = "wishlist-total")
     public WebElement wishListButton;
 
-    @FindBy(id = "cart")
+    @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
 
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
-    @FindBy(xpath = "//a[contains(text(),'Cello')]")
-    public WebElement productCello;
 
-    @FindBy(xpath = "//a[contains(text(),'Cello')]/../../../../div/div/div/div/button[3]")
-    public WebElement quickViewIconCello;
+    @FindBy(xpath = "//*[@name='search']")
+    public WebElement searchArea;
+
+    @FindBy(xpath = "(//*[text()='Search - TV'])[2]")
+    public WebElement searchTV;
+
+    @FindBy(xpath = "(//a[contains(text(),'TV')])[2]")
+    public WebElement productTV;
+
+    @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
+    public WebElement productNotFoundMsg;
+    @FindBy(xpath = "//*[text()='shopping cart']")
+    public WebElement shoppingCartLink;
+
+
+    @FindBy(xpath = "//*[text()=' Success: You have added ']")
+    public WebElement successfullyAddedMessage;
+    @FindBy(css = "button.close")
+    public WebElement closeMessageButton;
+
+    @FindBy(xpath = "//*[text()=' View Cart']")
+    public WebElement viewCartButton;
+
 
 
     public void login(){
