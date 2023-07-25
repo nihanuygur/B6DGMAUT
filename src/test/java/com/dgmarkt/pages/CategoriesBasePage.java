@@ -153,5 +153,9 @@ public class CategoriesBasePage extends BasePage {
 
     }
 
+    public void chooseOptionForPopUp(String options){
+        Driver.get().findElement(By.xpath("//a[text()='"+options+"']")).click();
+    }
+
 }
 
