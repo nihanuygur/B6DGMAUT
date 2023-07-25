@@ -1,3 +1,4 @@
+@@B6DGMAUT-1
 Feature: Forgotten Password Functionality
 
   Background:
