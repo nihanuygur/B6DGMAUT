@@ -1,5 +1,6 @@
 package com.dgmarkt.pages;
 
+import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.ConfigurationReader;
 import com.dgmarkt.utilities.Driver;
 import org.openqa.selenium.By;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     @FindBy(className = "a-close-newsletter")
     public WebElement closePopupButton;
@@ -18,6 +19,9 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//a[text()='Login']")
     public WebElement loginSubMenu;
+
+    @FindBy(xpath = "//a[text()='Register']")
+    public WebElement registerSubMenu;
 
     @FindBy(xpath = "//input[@id='input-email']")
     public WebElement emailInput;
@@ -52,7 +56,6 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
-
     @FindBy(xpath = "//*[@name='search']")
     public WebElement searchArea;
 
@@ -77,8 +80,13 @@ public class HomePage extends BasePage{
     public WebElement viewCartButton;
 
 
+    @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
+    public WebElement loginWarningMessage;
 
-    public void login(){
+    @FindBy(css = ".forgotten")
+    public WebElement forgottenPassword;
+
+    public void login() {
         dontShowAgain.click();
         closePopupButton.click();
         myAccountMenu.click();
@@ -87,23 +95,39 @@ public class HomePage extends BasePage{
         passwordInput.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
     }
+    public void loginForNegativeScenarios(String mail, String password){
+        dontShowAgain.click();
+        closePopupButton.click();
+        myAccountMenu.click();
+        loginSubMenu.click();
+        emailInput.sendKeys(mail);
+        passwordInput.sendKeys(password);
+        loginButton.click();
+    }
 
 
 
-    public void navigateToCategory(String categoryName){
+    public void navigateToCategory(String categoryName) {
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(categoryNav).perform();
 
         //clicking to the category
-        Driver.get().findElement(By.xpath("//a[text()='"+categoryName+"']")).click();
+        Driver.get().findElement(By.xpath("//a[text()='" + categoryName + "']")).click();
+    }
+
+
+    public void navigateToRegisterPage(){
+        closePopupButton.click();
+        myAccountMenu.click();
+        registerSubMenu.click();
     }
 
     public void navigateMyAccount() throws InterruptedException {
         Actions actions = new Actions(Driver.get());
         WebElement dropDown = Driver.get().findElement(By.xpath("//li[@class='nav header-dropdown']"));
         actions.moveToElement(dropDown);
-       actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
+        actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
 
     }
 
