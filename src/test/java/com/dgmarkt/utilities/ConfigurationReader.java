@@ -17,6 +17,7 @@ public class ConfigurationReader {
             properties = new Properties();
             // the values from the file input is loaded / fed into the properties object
             properties.load(input);
+
             input.close();
         } catch (Exception e) {
             e.printStackTrace();
