@@ -34,5 +34,10 @@ public class CurrencyFunctionStepDef {
         BrowserUtils.scrollToElement(categoriesBasePage.firstProductsPrice);
       Assert.assertTrue(categoriesBasePage.firstProductsPrice.getText().contains(currencyName));
     }
-}
+
+//    @Then("The user should see that the product has been added to the Shopping Cart")
+//    public void theUserShouldSeeThatTheProductHasBeenAddedToTheShoppingCart() {
+//        categoriesBasePage.selectProductWithIndex(3);
+    }
+
 
