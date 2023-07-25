@@ -23,4 +23,10 @@ public class ProductCompareStepDef {
         String actualText = productComparePage.ProductComparisonText.getText();
         Assert.assertEquals(expectedText, actualText);
     }
+
+
+    @When("The user clicks the Compare this product button in the upper right corner of the photo of the product he wants to compare.")
+    public void theUserClicksTheCompareThisProductButtonInTheUpperRightCornerOfThePhotoOfTheProductHeWantsToCompare() {
+
+    }
 }

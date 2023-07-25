@@ -12,3 +12,9 @@ Feature: Cat-Subcategory - Product Compare function
     Then The title is "Health & Beauty"
     When The user clicks to Product Compare button
     Then The user should be able to see Product Comparison title
+
+  Scenario:
+    Given The user navigates to "Health & Beauty" category
+    Then The title is "Health & Beauty"
+    When The user clicks the Compare this product button in the upper right corner of the photo of the product he wants to compare.
+
