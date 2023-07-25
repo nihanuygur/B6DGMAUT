@@ -28,7 +28,7 @@ Feature: Cart Icon Function 2
 #    And The user should be able to click on the Cart Symbol button and see that the cart is empty.
 
   @B6DGMAUT-146
-  Scenario: Verify that the user should be able to complete the checkout with existing address
+  Scenario: Verify that the user should be able to complete the checkout with the existing address
     Given The user clicks Checkout button and navigates to Checkout Page
     When The user clicks radio button to use existing address and then click on Continue button in Billing Details
     And The user clicks radio button to use existing address and then click on Continue button in Delivery Details
@@ -38,7 +38,7 @@ Feature: Cart Icon Function 2
     And The user should be able to see "Your Order Has Been Placed!" message
 
   @B6DGMAUT-147
-  Scenario: The user should not be able to complete checkout by filling required fields with empty fields
+  Scenario: The user should not be able to complete checkout by keeping required fields empty
     Given The user clicks Checkout button and navigates to Checkout Page
     When The user clicks add New Address option and leaves empty required fields then clicks on Continue button in Billing Details
     And The user should be able to see the error messages about fields

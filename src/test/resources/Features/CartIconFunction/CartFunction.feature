@@ -21,18 +21,18 @@ Feature: Cart Icon Function
 
   @B6DGMAUT-140
   Scenario: Verify that the user should be able to add products from product's page
-  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message from product Page
+  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message
     Given The user navigates to "Health & Beauty" category
-    Given The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
+    And The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
     When The user clicks shopping cart! link from pop-up message and closes the message
     Then The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
 
   @B6DGMAUT-141
   Scenario: Verify that the user should be able to add products from product's page with updating Quantity area
-  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message from product Page
+  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message
     Given The user navigates to "Health & Beauty" category
-    Given The user selects "Capsule Plate 6pcs" product and navigates to product's page.
-    Given The user updates Quantity Area as "10" and clicks to the Add to Cart icon.
+    When The user selects "Capsule Plate 6pcs" product and navigates to product's page.
+    And The user updates Quantity Area as "10" and clicks to the Add to Cart icon.
     When The user clicks shopping cart! link from pop-up message and closes the message
     Then The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
 
@@ -40,8 +40,8 @@ Feature: Cart Icon Function
   Scenario Outline: Verify that the User should be able to add products with hover over a product
   and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message
     Given The user navigates to "<CategoryName>" category
-    Given The user hover over "<ProductName>" product and clicks to the "Add to Cart" icon.
-    When The user clicks shopping cart! link from pop-up message and closes the message
+    When The user hover over "<ProductName>" product and clicks to the "Add to Cart" icon.
+    And The user clicks shopping cart! link from pop-up message and closes the message
     Then The user should see that the "<ProductName>" has been added to the Shopping Cart page
     Examples:
       | CategoryName    | ProductName          |
