@@ -97,7 +97,8 @@ public class HomePage extends BasePage {
         passwordInput.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
     }
-    public void loginForNegativeScenarios(String mail, String password){
+
+    public void loginForNegativeScenarios(String mail, String password) {
         dontShowAgain.click();
         closePopupButton.click();
         myAccountMenu.click();
@@ -108,8 +109,7 @@ public class HomePage extends BasePage {
     }
 
 
-
-    public void navigateToCategory(String categoryName){
+    public void navigateToCategory(String categoryName) {
         //hovering over to category navigator
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(categoryNav).perform();
@@ -119,7 +119,7 @@ public class HomePage extends BasePage {
     }
 
 
-    public void navigateToRegisterPage(){
+    public void navigateToRegisterPage() {
         closePopupButton.click();
         myAccountMenu.click();
         registerSubMenu.click();
@@ -133,6 +133,14 @@ public class HomePage extends BasePage {
 
     }
 
-
+    public void loginMyAccount(){
+        dontShowAgain.click();
+        closePopupButton.click();
+        myAccountMenu.click();
+        loginSubMenu.click();
+        emailInput.sendKeys("userone2@gmail.com");
+        passwordInput.sendKeys("userone22");
+        loginButton.click();
+    }
 
 }
