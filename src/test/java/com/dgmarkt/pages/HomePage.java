@@ -20,6 +20,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[text()='Login']")
     public WebElement loginSubMenu;
 
+    @FindBy(xpath = "//a[text()='Register']")
+    public WebElement registerSubMenu;
+
     @FindBy(xpath = "//input[@id='input-email']")
     public WebElement emailInput;
 
@@ -63,6 +66,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
     public WebElement productNotFoundMsg;
+
     @FindBy(xpath = "//*[text()='shopping cart']")
     public WebElement shoppingCartLink;
 
@@ -74,6 +78,8 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[text()=' View Cart']")
     public WebElement viewCartButton;
+    @FindBy(css = "p.text-center")
+    public WebElement cartEmptyMessage;
 
 
     @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
@@ -91,7 +97,8 @@ public class HomePage extends BasePage {
         passwordInput.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
     }
-    public void loginForNegativeScenarios(String mail, String password){
+
+    public void loginForNegativeScenarios(String mail, String password) {
         dontShowAgain.click();
         closePopupButton.click();
         myAccountMenu.click();
@@ -100,6 +107,7 @@ public class HomePage extends BasePage {
         passwordInput.sendKeys(password);
         loginButton.click();
     }
+
 
     public void navigateToCategory(String categoryName) {
         //hovering over to category navigator
@@ -111,6 +119,12 @@ public class HomePage extends BasePage {
     }
 
 
+    public void navigateToRegisterPage() {
+        closePopupButton.click();
+        myAccountMenu.click();
+        registerSubMenu.click();
+    }
+
     public void navigateMyAccount() throws InterruptedException {
         Actions actions = new Actions(Driver.get());
         WebElement dropDown = Driver.get().findElement(By.xpath("//li[@class='nav header-dropdown']"));
@@ -119,5 +133,14 @@ public class HomePage extends BasePage {
 
     }
 
+    public void loginMyAccount(){
+        dontShowAgain.click();
+        closePopupButton.click();
+        myAccountMenu.click();
+        loginSubMenu.click();
+        emailInput.sendKeys("userone2@gmail.com");
+        passwordInput.sendKeys("userone22");
+        loginButton.click();
+    }
 
 }
