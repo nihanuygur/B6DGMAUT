@@ -30,8 +30,9 @@ public class LoginStepDef {
         homePage.login();
     }
     @Then("The user should be able to login")
-    public void the_user_should_be_able_to_login() {
+    public void the_user_should_be_able_to_login() throws InterruptedException {
         Assert.assertTrue(homePage.successMessage.isDisplayed());
+        Thread.sleep(1000);
     }
 
     @When("The user enters {string} and {string}")
