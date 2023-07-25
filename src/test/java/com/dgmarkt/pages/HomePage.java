@@ -66,6 +66,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//p[text()='There is no product that matches the search criteria.']")
     public WebElement productNotFoundMsg;
+
     @FindBy(xpath = "//*[text()='shopping cart']")
     public WebElement shoppingCartLink;
 
@@ -77,6 +78,8 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[text()=' View Cart']")
     public WebElement viewCartButton;
+    @FindBy(css = "p.text-center")
+    public WebElement cartEmptyMessage;
 
 
     @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")

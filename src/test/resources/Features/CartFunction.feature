@@ -1,4 +1,4 @@
-
+@B6DGMAUT-7
 Feature: Cart Icon Function
   Users Story: As a user, I should be able to manage the cart by clicking the cart icon
   Acceptance Criteria :
@@ -19,35 +19,67 @@ Feature: Cart Icon Function
     When  The user enters valid credentials for the user login
     And The user should be able to login
 
-
-  Scenario: Verify that the User should be able to add products with hover over a product
+  @B6DGMAUT-140
+  Scenario: Verify that the user should be able to add products from product's page
   and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message from product Page
     Given The user navigates to "Health & Beauty" category
-    Given The user selects "Capsule Plate 6pcs" product and clicks to the Add To Cart icon.
+    Given The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
     When The user clicks shopping cart! link from pop-up message and closes the message
     Then The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
 
-  @B6DGMAUT-7
+  @B6DGMAUT-141
+  Scenario: Verify that the user should be able to add products from product's page with updating Quantity area
+  and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message from product Page
+    Given The user navigates to "Health & Beauty" category
+    Given The user selects "Capsule Plate 6pcs" product and navigates to product's page.
+    Given The user updates Quantity Area as "10" and clicks to the Add to Cart icon.
+    When The user clicks shopping cart! link from pop-up message and closes the message
+    Then The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
+
+  @B6DGMAUT-142
   Scenario Outline: Verify that the User should be able to add products with hover over a product
   and see the products added to the cart by clicking the 'shopping cart!' link from the pop-up message
     Given The user navigates to "<CategoryName>" category
-    Given The user hover over "<ProductName>" product and clicks to the "Add To Cart" icon.
+    Given The user hover over "<ProductName>" product and clicks to the "Add to Cart" icon.
     When The user clicks shopping cart! link from pop-up message and closes the message
     Then The user should see that the "<ProductName>" has been added to the Shopping Cart page
     Examples:
       | CategoryName    | ProductName          |
       | Health & Beauty | Capsule Plate 6pcs   |
-      | Televisions     | Cello C2420G         |
       | Networking      | ASUS ZenWiFi XD6     |
+      | Televisions     | Cello C2420G         |
       | TV Accessories  | Belkin adapter cable |
 
-
+  @B6DGMAUT-143
   Scenario: Verify that the user should be able to access the cart from the ‘View Cart’ button
     Given The user navigates to "Health & Beauty" category
-    When The user selects "Capsule Plate 6pcs" product and clicks to the "Add To Cart" icon.
+    When The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
     Then The user should see product successfully added message
     And  The user should be able to access the cart from the view cart button
     And The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
+
+  @B6DGMAUT-144
+  Scenario: Verify that the user should be able to remove the products from the Shopping Cart Page
+    Given The user navigates to "Health & Beauty" category
+    When The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
+    Then The user should see product successfully added message
+    And  The user should be able to access the cart from the view cart button
+    And The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
+    When The user should click Remove button
+    Then The "Capsule Plate 6pcs" should not be in the cart
+
+  @B6DGMAUT-145
+  Scenario: Verify that the user should be able to update the products Quantity on the Shopping Cart Page
+    Given The user navigates to "Health & Beauty" category
+    When The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
+    Then The user should see product successfully added message
+    And  The user should be able to access the cart from the view cart button
+    And The user should see that the "Capsule Plate 6pcs" has been added to the Shopping Cart page
+    When The user should click Update button after entering '10' to Quantity area
+    Then The user should be able to see the Success message on the Shopping Page
+
+
+
 
 
 
