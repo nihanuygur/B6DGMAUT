@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     @FindBy(className = "a-close-newsletter")
     public WebElement closePopupButton;
@@ -84,12 +84,8 @@ public class HomePage extends BasePage{
     public WebElement cartEmptyMessage;
 
 
-
     @FindBy(xpath = "//span[text()='Currency']")
     public WebElement currencyNav;
-
-
-
 
 
     @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
@@ -143,22 +139,22 @@ public class HomePage extends BasePage{
 
     }
 
-    public void selectCurrency(String currencyType){
+    public void selectCurrency(String currencyType) {
         WebElement currency = Driver.get().findElement(By.xpath("//button[contains(text(),'" + currencyType + "')]"));
         currency.click();
+    }
+        public void loginMyAccount () {
+            dontShowAgain.click();
+            closePopupButton.click();
+            myAccountMenu.click();
+            loginSubMenu.click();
+            emailInput.sendKeys("userone2@gmail.com");
+            passwordInput.sendKeys("userone22");
+            loginButton.click();
+        }
 
-    public void loginMyAccount(){
-        dontShowAgain.click();
-        closePopupButton.click();
-        myAccountMenu.click();
-        loginSubMenu.click();
-        emailInput.sendKeys("userone2@gmail.com");
-        passwordInput.sendKeys("userone22");
-        loginButton.click();
     }
 
-}
-    }
 
 
 
