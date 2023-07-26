@@ -174,5 +174,11 @@ public class CategoriesBasePage extends BasePage {
         Driver.get().findElement(By.xpath("//div[@class='btn-group']/button[@title='"+buttonName+"']")).click();
     }
 
+    public void chooseOptionForPopUp(String options){
+        Driver.get().findElement(By.xpath("//a[text()='"+options+"']")).click();
+    }
+
+
+
 }
 
