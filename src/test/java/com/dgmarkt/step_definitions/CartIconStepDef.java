@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class CartIconStepDef {
+public class  CartIconStepDef {
 
     HomePage homePage = new HomePage();
     CategoriesBasePage categoriesBasePage = new CategoriesBasePage();
