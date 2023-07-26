@@ -19,28 +19,28 @@ Feature: Like Icon (Wish List) function
   Scenario: Verify that the user should be able to see the products in the wish list
     Given   User choose Category "Health & Beauty"
     Then    The title is "Health & Beauty"
-    And     The user hover over "Capsule Plate 6pcs" product and clicks to the "Add to Wish List" icon
+   And     The user hover over "C1 Smart Scale White" product and clicks to the "Add to Wish List" icon
     And     User close the PopUp and click on "Wish List"
     Then    The page is "My Wish List"
-    Then    The user should see that the "Capsule Plate 6pcs" has been added to the Wish List page
+    Then    The user should see that the "C1 Smart Scale White" has been added to the Wish List page
 
 
   Scenario: Verify that the user should be able add to cart products from wish list
     Given   User choose Category "Health & Beauty"
     Then    The title is "Health & Beauty"
-    And     The user hover over "Capsule Plate 6pcs" product and clicks to the "Add to Wish List" icon
+    And     The user hover over "C1 Smart Scale White" product and clicks to the "Add to Wish List" icon
     And     User close the PopUp and click on "Wish List"
     Then    The page is "My Wish List"
-    And     The user should be able "Capsule Plate 6pcs" to click "Add to Cart"
+    And     The user should be able "C1 Smart Scale White" to click "Add to Cart"
     When    The user clicks shopping cart! link from pop-up message and closes the message
-    Then    The user should see that the "Capsule Plate 6pcs" has been added to the Wish List page
+    Then    The user should see that the "C1 Smart Scale White" has been added to the Shopping Cart page
 
   Scenario: Verify that the user should be able to delete products from wish list
     Given   User choose Category "Health & Beauty"
     Then    The title is "Health & Beauty"
-    And     The user hover over "Capsule Plate 6pcs" product and clicks to the "Add to Wish List" icon
+    And     The user hover over "C1 Smart Scale White" product and clicks to the "Add to Wish List" icon
     And     User close the PopUp and click on "Wish List"
     Then    The page is "My Wish List"
-    And     The user should be able "Capsule Plate 6pcs" to click "Remove"
+    And     The user should be able "C1 Smart Scale White" to click "Remove"
     Then    Verify that the and user can see the message
 

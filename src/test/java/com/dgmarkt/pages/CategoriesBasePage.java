@@ -62,6 +62,14 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//*[text()=' Success: You have added ']")
     public WebElement popUpMessage;
 
+    @FindBy(xpath = "//h1/a")
+    public WebElement browseProductTitle;
+    @FindBy(xpath = "//div[@id='product']/div/button")
+    public WebElement browseProductAddToCartButton;
+
+
+
+
 
     public void selectViewOption(String viewOption) {
 
@@ -159,9 +167,15 @@ public class CategoriesBasePage extends BasePage {
 
     }
 
+    public void clickButtonsOnBrowseProduct(String buttonName){
+        Driver.get().findElement(By.xpath("//div[@class='btn-group']/button[@title='"+buttonName+"']")).click();
+    }
+
     public void chooseOptionForPopUp(String options){
         Driver.get().findElement(By.xpath("//a[text()='"+options+"']")).click();
     }
+
+
 
 }
 

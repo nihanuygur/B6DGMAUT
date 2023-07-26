@@ -19,7 +19,8 @@ public class WishListPage extends BasePage{
     @FindBy(xpath = "//*[contains(text(),'modified your wish list!')]")
     public WebElement removeMessageWishList;
 
-    public void findProductAddRemove(String productName,String addOrDelete){
+    public void findProductAddRemove(String productName,String addOrDelete) throws InterruptedException {
+        Thread.sleep(2000);
         Driver.get().findElement(By.xpath("//a[contains(text(),'"+productName+"')]/../..//*[contains(@data-original-title,'"+addOrDelete+"')]")).click();
     }
 

@@ -36,14 +36,10 @@ public class WishListStepDef {
 
 
 
-    @Given("User choose Category {string} and click {string}")
-    public void userChooseCategoryAndClick(String chooseProduct, String addToCart) {
-        wishListPage.findProductAddRemove(chooseProduct,addToCart );
-    }
 
 
     @And("The user should be able {string} to click {string}")
-    public void theUserShouldBeAbleToClick(String product, String addCart) {
+    public void theUserShouldBeAbleToClick(String product, String addCart) throws InterruptedException {
         wishListPage.findProductAddRemove(product,addCart);
     }
 
@@ -51,6 +47,7 @@ public class WishListStepDef {
     public void verifyThatTheAndUserCanSeeTheMessage() {
        Assert.assertTrue(wishListPage.removeMessageWishList.isDisplayed());
     }
+
 
 
 }
