@@ -87,7 +87,6 @@ public class  CartIconStepDef {
 
     @When("The user controls if is it clicked Cash On Delivery the radio button and then clicks on I agree button and Continue button.")
     public void the_user_controls_if_is_it_clicked_cash_on_delivery_the_radio_button_and_then_clicks_on_i_agree_button_and_continue_button() throws InterruptedException {
-        BrowserUtils.scrollToElement(checkOutPage.continueDeliveryMethod);
 
         checkOutPage.IAgreeButton.click();
         checkOutPage.continuePaymentMethod.click();

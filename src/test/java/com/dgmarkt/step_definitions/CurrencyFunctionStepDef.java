@@ -1,6 +1,7 @@
 package com.dgmarkt.step_definitions;
 
 import com.dgmarkt.pages.CategoriesBasePage;
+import com.dgmarkt.pages.CheckOutPage;
 import com.dgmarkt.pages.HomePage;
 import com.dgmarkt.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
@@ -14,6 +15,7 @@ public class CurrencyFunctionStepDef {
 
     HomePage homePage = new HomePage();
     CategoriesBasePage categoriesBasePage=new CategoriesBasePage();
+    CheckOutPage checkOutPage=new CheckOutPage();
 
 
     @Given("The user clicks {string} button")
@@ -35,9 +37,19 @@ public class CurrencyFunctionStepDef {
       Assert.assertTrue(categoriesBasePage.firstProductsPrice.getText().contains(currencyName));
     }
 
-//    @Then("The user should see that the product has been added to the Shopping Cart")
-//    public void theUserShouldSeeThatTheProductHasBeenAddedToTheShoppingCart() {
-//        categoriesBasePage.selectProductWithIndex(3);
+    @Given("The user hover over {int} th product and clicks to the {string} icon.")
+    public void theUserHoverOverThProductAndClicksToTheIcon(int index, String command) {
+        categoriesBasePage.selectProductWithIndex(index);
     }
+
+
+    @And("Verify that Flat Shipping rate matches selected {string}")
+    public void verifyThatFlatShippingRateMatchesSelected(String ExpectedCurrencyType) {
+        String actualResult=checkOutPage.flatShippingRate.getText();
+        Assert.assertTrue(actualResult.contains(ExpectedCurrencyType));
+
+
+    }
+}
 
 

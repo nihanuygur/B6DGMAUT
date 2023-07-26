@@ -1,3 +1,4 @@
+@B6DGMAUT-4
 Feature: Currency Function
   Background:
     Given The user is on the login panel
@@ -25,19 +26,19 @@ Feature: Currency Function
     Then The title is "<CategoryName>"
     Given The user clicks "Currency" button
     Then The user selects"<CurrencyType>" currency
-    Given The user hover over "<ProductName>" product and clicks to the "Add to Cart" icon.
+    Given The user hover over 5 th product and clicks to the "Add to Cart" icon.
     When The user clicks shopping cart! link from pop-up message and closes the message
-    Then The user should see that the "<ProductName>" has been added to the Shopping Cart page
     Given The user clicks Checkout button and navigates to Checkout Page
     When The user clicks radio button to use existing address and then click on Continue button in Billing Details
     And The user clicks radio button to use existing address and then click on Continue button in Delivery Details
+    And Verify that Flat Shipping rate matches selected "<CurrencyType>"
     And The user controls if is it clicked Flat Shipping Rate the radio button and clicks on Continue button.
     And The user controls if is it clicked Cash On Delivery the radio button and then clicks on I agree button and Continue button.
     Then The user should be able to click on Confirm Order button
     And The user should be able to see "Your Order Has Been Placed!" message
 
     Examples:
-      | CategoryName    | CurrencyType |ProductName|
-      | Health & Beauty | €            |Capsule Plate 6pcs|
-      | Televisions     | £            |Cello C2420G      |
-      | Networking      | $            | ASUS ZenWiFi XD6  |
+      | CategoryName    | CurrencyType |
+      | Health & Beauty | €            |
+      | Televisions     | £            |
+      | Networking      | $            |
