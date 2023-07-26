@@ -11,12 +11,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.xml.sax.Locator;
+
 
 public class PriceSliderStepDef extends CategoriesBasePage {
 
-
     CategoriesBasePage categoryPage = new CategoriesBasePage();
-
     @When("sees the price slider")
     public void sees_the_price_slider() {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
@@ -30,38 +33,32 @@ public class PriceSliderStepDef extends CategoriesBasePage {
         jse.executeScript("window.scrollBy(0,300)");
 
 
-         //Actions actions =new Actions(Driver.get());
-         // actions.clickAndHold(PriceSliderMin).build().perform();
 
 
         int start = Integer.parseInt(categoryPage.MinText.getAttribute("value"));
-        int finish =Integer.parseInt(categoryPage.MaxText.getAttribute("value"));
-        
+        int finish = Integer.parseInt(categoryPage.MaxText.getAttribute("value"));
+
 
         WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(categoryPage.PriceSliderMin));
 
 
         for (int i = start; i < minValue; i++) {
-             Thread.sleep(500);
+            Thread.sleep(500);
             categoryPage.PriceSliderMin.sendKeys(Keys.ARROW_RIGHT);
 
+
+            }
+
+            for (int i = finish; i > maxValue; i--) {
+                Thread.sleep(500);
+                categoryPage.PriceSliderMax.sendKeys(Keys.ARROW_LEFT);
+
+            }
+
+
+            Thread.sleep(5000);
+            BrowserUtils.scrollToElement(categoryPage.PriceSliderMin);
         }
 
-        for (int i = finish; i > maxValue ; i--) {
-            Thread.sleep(500);
-            categoryPage.PriceSliderMax.sendKeys(Keys.ARROW_LEFT);
-
-        }
-
-
-        Thread.sleep(5000);
-        BrowserUtils.scrollToElement(categoryPage.PriceSliderMin);
     }
-
-}
-
-
-
-
-
