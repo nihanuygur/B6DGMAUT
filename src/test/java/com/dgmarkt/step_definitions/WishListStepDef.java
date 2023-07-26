@@ -38,7 +38,7 @@ public class WishListStepDef {
 
     @Given("User choose Category {string} and click {string}")
     public void userChooseCategoryAndClick(String chooseProduct, String addToCart) {
-        wishListPage.findProductAddToCartOrRemove(chooseProduct,addToCart );
+        wishListPage.findProductAddRemove(chooseProduct,addToCart );
     }
 
 

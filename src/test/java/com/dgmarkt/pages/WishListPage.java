@@ -19,11 +19,8 @@ public class WishListPage extends BasePage{
     @FindBy(xpath = "//*[contains(text(),'modified your wish list!')]")
     public WebElement removeMessageWishList;
 
-    public void findProductAddToCartOrRemove(String productName,String addOrDelete){
-        Driver.get().findElement(By.xpath("//a[contains(text(),'"+productName+"')]/../..//button[contains(@data-original-title,'"+addOrDelete+"')]")).click();
-    }
-    public void findProductAddRemove(String productName,String delete){
-        Driver.get().findElement(By.xpath("//a[contains(text(),'"+productName+"')]/../..//*[contains(@data-original-title,'"+delete+"')]")).click();
+    public void findProductAddRemove(String productName,String addOrDelete){
+        Driver.get().findElement(By.xpath("//a[contains(text(),'"+productName+"')]/../..//*[contains(@data-original-title,'"+addOrDelete+"')]")).click();
     }
 
     public void productInWishList(String productName){
