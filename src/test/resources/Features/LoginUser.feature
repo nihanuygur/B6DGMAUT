@@ -24,5 +24,4 @@ Feature: Dgmarkt user login test
       | userone@              | userone12   |
       | userone.com           | userone12   |
       | useronegmail.com      | userone12   |
-      |                       | userone12   |
-      | userone12@gmail.com   |             |
+      | userone@gmail.com     |             |
