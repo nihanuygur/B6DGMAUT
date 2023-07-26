@@ -52,6 +52,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
+
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
@@ -88,6 +89,16 @@ public class HomePage extends BasePage {
     @FindBy(css = ".forgotten")
     public WebElement forgottenPassword;
 
+    @FindBy(xpath = "//*[text()='Logout']")
+    public WebElement logout;
+
+    @FindBy(xpath = "(//span[text()='Continue'])[2]")
+    public WebElement logoutContinue;
+
+    // after checking of get url it will be usable
+    @FindBy (xpath = "//*[text()='Returning Customer']")
+    public WebElement returningCustomer;
+
     public void login() {
         dontShowAgain.click();
         closePopupButton.click();
@@ -96,6 +107,7 @@ public class HomePage extends BasePage {
         emailInput.sendKeys(ConfigurationReader.get("email"));
         passwordInput.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
+
     }
 
     public void loginForNegativeScenarios(String mail, String password) {
