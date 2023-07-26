@@ -1,4 +1,5 @@
 package com.dgmarkt.pages;
+
 import com.dgmarkt.utilities.Driver;
 import org.openqa.selenium.By;
 
@@ -41,7 +42,7 @@ public class CategoriesBasePage extends BasePage {
     public WebElement PriceSlider;
 
     @FindBy(xpath = "//div[@id='slider-price']")
-     public WebElement PriceSlider2;
+    public WebElement PriceSlider2;
 
     @FindBy(xpath = "//input[@placeholder='Min']")
     public WebElement MinText;
@@ -81,9 +82,12 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@id='product']/div/button")
     public WebElement browseProductAddToCartButton;
 
+    @FindBy(xpath = "//div[@class='col-sm-6 text-right']")
+    public WebElement numberOfProductText;
 
-
-
+    public void numberOfProducts(String number) {
+        Driver.get().findElement((By.xpath("//option[text()='" + number + "']"))).click();
+    }
 
     public void selectViewOption(String viewOption) {
 
@@ -96,7 +100,6 @@ public class CategoriesBasePage extends BasePage {
     }
 
     public void selectPriceRageMax(double priceRangeMax) {
-
 
 
         //clicking to the option
@@ -181,14 +184,13 @@ public class CategoriesBasePage extends BasePage {
 
     }
 
-    public void clickButtonsOnBrowseProduct(String buttonName){
-        Driver.get().findElement(By.xpath("//div[@class='btn-group']/button[@title='"+buttonName+"']")).click();
+    public void clickButtonsOnBrowseProduct(String buttonName) {
+        Driver.get().findElement(By.xpath("//div[@class='btn-group']/button[@title='" + buttonName + "']")).click();
     }
 
-    public void chooseOptionForPopUp(String options){
-        Driver.get().findElement(By.xpath("//a[text()='"+options+"']")).click();
+    public void chooseOptionForPopUp(String options) {
+        Driver.get().findElement(By.xpath("//a[text()='" + options + "']")).click();
     }
-
 
 
 }

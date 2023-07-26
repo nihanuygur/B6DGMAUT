@@ -16,24 +16,17 @@ Feature: Test for the number of products to be shown on a page while in subcateg
       | categoryName    | number | message     |
       | Health & Beauty | 12     | 1 to 12 of  |
       | Health & Beauty | 25     | 1 to 25 of  |
-   #   | Health & Beauty | 50     | 1 to 50 of |
-   #   | Health & Beauty | 75     | 1 to 75 of |
-   #   | Health & Beauty | 100    | 1 to 100 of |
       | Televisions     | 12     | 1 to 12 of  |
       | Televisions     | 25     | 1 to 25 of  |
       | Televisions     | 50     | 1 to 50 of  |
-   #   | Televisions     | 75     | 1 to 75 of |
-   #   | Health & Beauty | 100    | 1 to 100 of |
       | TV Accessories  | 12     | 1 to 12 of  |
       | TV Accessories  | 25     | 1 to 25 of  |
       | TV Accessories  | 50     | 1 to 50 of  |
       | TV Accessories  | 75     | 1 to 75 of  |
-   #   | TV Accessories  | 100    | 1 to 100 of |
       | Networking      | 12     | 1 to 12 of  |
       | Networking      | 25     | 1 to 25 of  |
       | Networking      | 50     | 1 to 50 of  |
       | Networking      | 75     | 1 to 75 of  |
-   #   | Networking      | 100    | 1 to 100 of |
 
 
 
