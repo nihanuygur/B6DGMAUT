@@ -39,17 +39,18 @@ public class WishListIconStepDef {
 
 
 
-    @When("The user clicks wish list! link from pop-up message and closes the message")
-    public void theUserClicksWishListLinkFromPopUpMessageAndClosesTheMessage() {
-        Driver.get().findElement(By.xpath("//a[normalize-space()='wish list']")).click();
+    @When("The user clicks {string} link from pop-up message and closes the message")
+    public void theUserClicksLinkFromPopUpMessageAndClosesTheMessage(String wishListOption) {
+        categoriesBasePage.chooseOptionForPopUp(wishListOption);
     }
 
 
     @Then("The user should see that the {string} has been added to the Wish List page")
-    public void theUserShouldSeeThatTheHasBeenAddedToTheWishListPage(String product) {
-        //Assert.assertEquals(expectedProduct,categoriesBasePage.getTextProduct(product));
-        Assert.assertTrue(Driver.get().findElement(By.xpath("//*[@class='text-left'][contains(text(),'" + product + "')]")).isDisplayed());
+    public void theUserShouldSeeThatTheHasBeenAddedToTheWishListPage(String expectedProduct) {
+        //Assert.assertEquals(expectedProduct,categoriesBasePage.getTextProduct(expectedProduct));
+        wishListPage.productInWishList(expectedProduct);
     }
+
 
 
 }

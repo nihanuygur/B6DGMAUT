@@ -52,6 +52,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
+
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 

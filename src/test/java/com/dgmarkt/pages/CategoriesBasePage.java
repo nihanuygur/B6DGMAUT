@@ -1,4 +1,6 @@
 package com.dgmarkt.pages;
+import com.dgmarkt.utilities.Driver;
+import org.openqa.selenium.By;
 
 import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.Driver;
@@ -8,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+
 
 public class CategoriesBasePage extends BasePage {
 
@@ -37,9 +40,20 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='list-group-item']")
     public WebElement PriceSlider;
 
-    //@FindBy(xpath = "//div[@style='left: 8.09399%; width: 77.5457%;']")
-    //public WebElement FullSlider;
+    @FindBy(xpath = "//div[@id='slider-price']")
+     public WebElement PriceSlider2;
 
+    @FindBy(xpath = "//input[@placeholder='Min']")
+    public WebElement MinText;
+
+    @FindBy(xpath = "//input[@placeholder='Max']")
+    public WebElement MaxText;
+
+    @FindBy(xpath = "(//div[@id='slider-price']//span)[1]")
+    public WebElement PriceSliderMin;
+
+    @FindBy(xpath = "(//div[@id='slider-price']//span)[2]")
+    public WebElement PriceSliderMax;
     @FindBy(css = ".product-item")
     public WebElement firstProduct;
 
@@ -62,6 +76,14 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//*[text()=' Success: You have added ']")
     public WebElement popUpMessage;
 
+    @FindBy(xpath = "//h1/a")
+    public WebElement browseProductTitle;
+    @FindBy(xpath = "//div[@id='product']/div/button")
+    public WebElement browseProductAddToCartButton;
+
+
+
+
 
     public void selectViewOption(String viewOption) {
 
@@ -71,11 +93,11 @@ public class CategoriesBasePage extends BasePage {
 
     public void selectPriceRage(double priceRange) {
 
-        //clicking to the option
-        Driver.get().findElement(By.xpath("//div[@style='left:'" + priceRange + "%;']")).click();
     }
 
     public void selectPriceRageMax(double priceRangeMax) {
+
+
 
         //clicking to the option
         Driver.get().findElement(By.xpath("//div[@style='left:'" + priceRangeMax + "%;']")).click();
@@ -158,6 +180,16 @@ public class CategoriesBasePage extends BasePage {
 
 
     }
+
+    public void clickButtonsOnBrowseProduct(String buttonName){
+        Driver.get().findElement(By.xpath("//div[@class='btn-group']/button[@title='"+buttonName+"']")).click();
+    }
+
+    public void chooseOptionForPopUp(String options){
+        Driver.get().findElement(By.xpath("//a[text()='"+options+"']")).click();
+    }
+
+
 
 }
 
