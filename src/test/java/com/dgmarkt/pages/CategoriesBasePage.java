@@ -90,7 +90,6 @@ public class CategoriesBasePage extends BasePage {
     }
 
     public void goToProductPage(String productName) {
-//        WebElement product = Driver.get().findElement(By.xpath("//img[@title='" + productName + "']"));
         WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName +
                 "')][contains(@class,'responsive')]"));
         BrowserUtils.scrollToElement(product);
