@@ -14,9 +14,9 @@ public class CheckOutPage extends BasePage {
     @FindBy(css = "div.text-danger")
     public WebElement message;
 
-
     @FindBy(xpath = "//input[@name='payment_address']")
     public WebElement existingAddressBilling;
+
     @FindBy(xpath = "//input[@name='shipping_address']")
     public WebElement existingAddressDelivery;
 
@@ -67,6 +67,9 @@ public class CheckOutPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='content']/p")
     public WebElement orderedMessage2;
+
+    @FindBy(xpath = "//*[@name='shipping_method']/..")
+    public WebElement flatShippingRate;
 
 
     public void checkoutWithExistingAddress() {
