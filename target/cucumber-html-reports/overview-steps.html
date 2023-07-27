@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+        <th>Number</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>Cucumber HTML Reports</td>
+        <td>1</td>
+      <td>27 Jul 2023, 02:45</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+      <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.CartIconStepDef.theUserShouldSeeProductSuccessfullyAddedMessage()</td>
+              <td>1</td>
+              <td class="duration" data-value="240984000">0.240</td>
+              <td class="duration" data-value="240984000">0.240</td>
+              <td class="duration" data-value="240984000">0.240</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.CartIconStepDef.the_user_should_see_that_the_has_been_added_to_the_shopping_cart_page(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="125808000">0.125</td>
+              <td class="duration" data-value="125808000">0.125</td>
+              <td class="duration" data-value="125808000">0.125</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.Hooks.setUp()</td>
+              <td>7</td>
+              <td class="duration" data-value="6391815857">6.391</td>
+              <td class="duration" data-value="6391815857">8.946</td>
+              <td class="duration" data-value="44742711000">44.742</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.Hooks.tearDown(io.cucumber.java.Scenario)</td>
+              <td>7</td>
+              <td class="duration" data-value="2118638000">2.118</td>
+              <td class="duration" data-value="2118638000">2.130</td>
+              <td class="duration" data-value="14830466000">14.830</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.LoginStepDef.theUserEntersTheGivenCredentialsAndClicksLoginButtonForTheFirstAuthentication()</td>
+              <td>7</td>
+              <td class="duration" data-value="7954226714">7.954</td>
+              <td class="duration" data-value="7954226714">8.497</td>
+              <td class="duration" data-value="55679587000">55.679</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.LoginStepDef.theUserIsOnTheMainPage()</td>
+              <td>7</td>
+              <td class="duration" data-value="382586285">0.382</td>
+              <td class="duration" data-value="382586285">0.466</td>
+              <td class="duration" data-value="2678104000">2.678</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.LoginStepDef.the_user_enters_valid_credentials_for_the_user_login()</td>
+              <td>7</td>
+              <td class="duration" data-value="2786089000">2.786</td>
+              <td class="duration" data-value="2786089000">3.173</td>
+              <td class="duration" data-value="19502623000">19.502</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.LoginStepDef.the_user_is_on_the_login_panel()</td>
+              <td>7</td>
+              <td class="duration" data-value="2213581571">2.213</td>
+              <td class="duration" data-value="2213581571">3.268</td>
+              <td class="duration" data-value="15495071000">15.495</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserClicksMyAccountMenuAndNavigatesToPage(java.lang.String)</td>
+              <td>7</td>
+              <td class="duration" data-value="2491662000">2.491</td>
+              <td class="duration" data-value="2491662000">3.263</td>
+              <td class="duration" data-value="17441634000">17.441</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserClicksTabToSeeReturnedProducts(java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="557647500">0.557</td>
+              <td class="duration" data-value="557647500">0.598</td>
+              <td class="duration" data-value="1115295000">1.115</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserClicksViewButtonOnTheProductReturnsPage()</td>
+              <td>1</td>
+              <td class="duration" data-value="520826000">0.520</td>
+              <td class="duration" data-value="520826000">0.520</td>
+              <td class="duration" data-value="520826000">0.520</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserClicksViewIconToSeeAllOrderHistories(java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="709637500">0.709</td>
+              <td class="duration" data-value="709637500">0.814</td>
+              <td class="duration" data-value="2838550000">2.838</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserCompleteTheFormOnTheProductReturnsPageAndClicksSubmitButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="1667813000">1.667</td>
+              <td class="duration" data-value="1667813000">1.667</td>
+              <td class="duration" data-value="1667813000">1.667</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserKeepsTheFormFieldsEmptyAndUncheckedOnTheProductReturnsPageAndClicksSubmitButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="1790618000">1.790</td>
+              <td class="duration" data-value="1790618000">1.790</td>
+              <td class="duration" data-value="1790618000">1.790</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserShouldBeAbleToSeeReturnRequestMessage()</td>
+              <td>1</td>
+              <td class="duration" data-value="64599000">0.064</td>
+              <td class="duration" data-value="64599000">0.064</td>
+              <td class="duration" data-value="64599000">0.064</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserShouldBeAbleToSeeWarningMessageForTheInvalidInputs()</td>
+              <td>1</td>
+              <td class="duration" data-value="81052000">0.081</td>
+              <td class="duration" data-value="81052000">0.081</td>
+              <td class="duration" data-value="81052000">0.081</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserShouldClickReorderIconForTheProduct(java.lang.String)</td>
+              <td>3</td>
+              <td class="duration" data-value="1402364666">1.402</td>
+              <td class="duration" data-value="1402364666">1.752</td>
+              <td class="duration" data-value="4207094000">4.207</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserShouldSeeThatTheAsTheReturnedProductOnProductReturnsPage(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="155160000">0.155</td>
+              <td class="duration" data-value="155160000">0.155</td>
+              <td class="duration" data-value="155160000">0.155</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.theUserShouldSeeTheProductSNameOnTheOrderHistoryInformationPage(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="88117000">0.088</td>
+              <td class="duration" data-value="88117000">0.088</td>
+              <td class="duration" data-value="88117000">0.088</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.OrderHistoryStepDef.verifyThatTheUserIsOnThePage(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="83052000">0.083</td>
+              <td class="duration" data-value="83052000">0.083</td>
+              <td class="duration" data-value="83052000">0.083</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.dgmarkt.step_definitions.SortByFunctionStepDef.the_title_is(java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="113596250">0.113</td>
+              <td class="duration" data-value="113596250">0.145</td>
+              <td class="duration" data-value="454385000">0.454</td>
+              <td class="passed">100.00%</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>21</td>
+            <td>72</td>
+            <td class="duration">2.552</td>
+            <td class="duration">55.679</td>
+            <td class="duration">3:3.803</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>
