@@ -68,6 +68,9 @@ public class CheckOutPage extends BasePage {
     @FindBy(xpath = "//*[@id='content']/p")
     public WebElement orderedMessage2;
 
+    @FindBy(xpath = "//*[@name='shipping_method']/..")
+    public WebElement flatShippingRate;
+
 
     public void checkoutWithExistingAddress() {
         existingAddressBilling.click();
