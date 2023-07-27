@@ -34,12 +34,26 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//div[@class='box-price']/p")
     public List<WebElement> pricesList;
 
+    @FindBy(xpath = "//*[@class='price']")
+    public WebElement firstProductsPrice;
+
     @FindBy(xpath = "//div[@class='list-group-item']")
     public WebElement PriceSlider;
 
-    //@FindBy(xpath = "//div[@style='left: 8.09399%; width: 77.5457%;']")
-    //public WebElement FullSlider;
+    @FindBy(xpath = "//div[@id='slider-price']")
+    public WebElement PriceSlider2;
 
+    @FindBy(xpath = "//input[@placeholder='Min']")
+    public WebElement MinText;
+
+    @FindBy(xpath = "//input[@placeholder='Max']")
+    public WebElement MaxText;
+
+    @FindBy(xpath = "(//div[@id='slider-price']//span)[1]")
+    public WebElement PriceSliderMin;
+
+    @FindBy(xpath = "(//div[@id='slider-price']//span)[2]")
+    public WebElement PriceSliderMax;
     @FindBy(css = ".product-item")
     public WebElement firstProduct;
 
@@ -62,6 +76,17 @@ public class CategoriesBasePage extends BasePage {
     @FindBy(xpath = "//*[text()=' Success: You have added ']")
     public WebElement popUpMessage;
 
+    @FindBy(xpath = "//h1/a")
+    public WebElement browseProductTitle;
+    @FindBy(xpath = "//div[@id='product']/div/button")
+    public WebElement browseProductAddToCartButton;
+
+    @FindBy(xpath = "//div[@class='col-sm-6 text-right']")
+    public WebElement numberOfProductText;
+
+    public void numberOfProducts(String number) {
+        Driver.get().findElement((By.xpath("//option[text()='" + number + "']"))).click();
+    }
 
     public void selectViewOption(String viewOption) {
 
@@ -71,18 +96,18 @@ public class CategoriesBasePage extends BasePage {
 
     public void selectPriceRage(double priceRange) {
 
-        //clicking to the option
-        Driver.get().findElement(By.xpath("//div[@style='left:'" + priceRange + "%;']")).click();
     }
 
     public void selectPriceRageMax(double priceRangeMax) {
+
 
         //clicking to the option
         Driver.get().findElement(By.xpath("//div[@style='left:'" + priceRangeMax + "%;']")).click();
     }
 
     public void goToProductPage(String productName) {
-        WebElement product = Driver.get().findElement(By.xpath("//img[@title='" + productName + "']"));
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName +
+                "')][contains(@class,'responsive')]"));
         BrowserUtils.scrollToElement(product);
         BrowserUtils.clickWithJS(product);
         Driver.get().findElement(By.xpath("//button[@id='button-cart']")).click();
@@ -158,6 +183,16 @@ public class CategoriesBasePage extends BasePage {
 
 
     }
+
+    public void clickButtonsOnBrowseProduct(String buttonName) {
+        Driver.get().findElement(By.xpath("//div[@class='btn-group']/button[@title='" + buttonName + "']")).click();
+    }
+
+    public void chooseOptionForPopUp(String options) {
+        Driver.get().findElement(By.xpath("//a[text()='" + options + "']")).click();
+    }
+
+
 
 }
 

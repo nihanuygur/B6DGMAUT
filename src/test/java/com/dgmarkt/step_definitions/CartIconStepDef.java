@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class CartIconStepDef {
+public class  CartIconStepDef {
 
     HomePage homePage = new HomePage();
     CategoriesBasePage categoriesBasePage = new CategoriesBasePage();
@@ -86,8 +86,7 @@ public class CartIconStepDef {
     }
 
     @When("The user controls if is it clicked Cash On Delivery the radio button and then clicks on I agree button and Continue button.")
-    public void the_user_controls_if_is_it_clicked_cash_on_delivery_the_radio_button_and_then_clicks_on_i_agree_button_and_continue_button() {
-        BrowserUtils.scrollToElement(checkOutPage.continueDeliveryMethod);
+    public void the_user_controls_if_is_it_clicked_cash_on_delivery_the_radio_button_and_then_clicks_on_i_agree_button_and_continue_button() throws InterruptedException {
 
         checkOutPage.IAgreeButton.click();
         checkOutPage.continuePaymentMethod.click();
@@ -181,4 +180,6 @@ public class CartIconStepDef {
     public void theUserShouldBeAbleToSeeMessageOnTheShoppingPage() {
         assertTrue(shoppingCartPage.successMessage.isDisplayed());
     }
+
+
 }

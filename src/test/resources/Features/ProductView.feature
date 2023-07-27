@@ -1,4 +1,4 @@
-@B6DMAUT-41
+@B6DGMAUT-15
 Feature: Cat-Subcategory - Product View function
 
   Background:
@@ -8,7 +8,7 @@ Feature: Cat-Subcategory - Product View function
     When  The user enters valid credentials for the user login
     Then The user should be able to login
 
-  @wip
+  @B6DGMAUT-41
   Scenario Outline: Check if it can change the product appearance by selecting one of the sub-categories.
     Given The user hovers over the category and selects one of the four sub-categories "<Category Name>"from the sub-categories.
     When user click on product view icon"<viewOption>"

@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class HomePage extends BasePage {
 
     @FindBy(className = "a-close-newsletter")
@@ -52,6 +54,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='cart']/button")
     public WebElement cartButton;
+
     @FindBy(xpath = "//span[text()='Category']")
     public WebElement categoryNav;
 
@@ -82,11 +85,28 @@ public class HomePage extends BasePage {
     public WebElement cartEmptyMessage;
 
 
+    @FindBy(xpath = "//span[text()='Currency']")
+    public WebElement currencyNav;
+
+
     @FindBy(xpath = "//div[text()=' Warning: No match for E-Mail Address and/or Password.']")
     public WebElement loginWarningMessage;
 
     @FindBy(css = ".forgotten")
     public WebElement forgottenPassword;
+
+    @FindBy(xpath = "//*[text()='Logout']")
+    public WebElement logout;
+
+    @FindBy(xpath = "(//span[text()='Continue'])[2]")
+    public WebElement logoutContinue;
+
+    // after checking of get url it will be usable
+    @FindBy (xpath = "//*[text()='Returning Customer']")
+    public WebElement returningCustomer;
+
+    @FindBy (xpath = "//div[@class='container-inner']/h1")
+    public WebElement currentPageHeader;
 
     public void login() {
         dontShowAgain.click();
@@ -96,6 +116,7 @@ public class HomePage extends BasePage {
         emailInput.sendKeys(ConfigurationReader.get("email"));
         passwordInput.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
+
     }
 
     public void loginForNegativeScenarios(String mail, String password) {
@@ -128,19 +149,34 @@ public class HomePage extends BasePage {
     public void navigateMyAccount() throws InterruptedException {
         Actions actions = new Actions(Driver.get());
         WebElement dropDown = Driver.get().findElement(By.xpath("//li[@class='nav header-dropdown']"));
-        actions.moveToElement(dropDown);
-        actions.moveToElement(Driver.get().findElement(By.xpath("//a[text()='My Account']"))).click().perform();
+        BrowserUtils.hover(dropDown);
+        BrowserUtils.clickWithJS(Driver.get().findElement(By.xpath("//a[text()='My Account']")));
 
     }
 
-    public void loginMyAccount(){
-        dontShowAgain.click();
-        closePopupButton.click();
+    public void selectCurrency(String currencyType) {
+        WebElement currency = Driver.get().findElement(By.xpath("//button[contains(text(),'" + currencyType + "')]"));
+        currency.click();
+    }
+        public void loginMyAccount () {
+            dontShowAgain.click();
+            closePopupButton.click();
+            myAccountMenu.click();
+            loginSubMenu.click();
+            emailInput.sendKeys("userone2@gmail.com");
+            passwordInput.sendKeys("userone22");
+            loginButton.click();
+        }
+
+
+    public void navigateSubMenuOfMyAccount(String subMenu) {
         myAccountMenu.click();
-        loginSubMenu.click();
-        emailInput.sendKeys("userone2@gmail.com");
-        passwordInput.sendKeys("userone22");
-        loginButton.click();
-    }
+        Driver.get().findElement(By.xpath("//a[text()='" + subMenu + "']")).click();
 
+    }
 }
+
+
+
+
+
