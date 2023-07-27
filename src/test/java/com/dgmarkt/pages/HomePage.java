@@ -168,12 +168,13 @@ public class HomePage extends BasePage {
             loginButton.click();
         }
 
-    }
+
     public void navigateSubMenuOfMyAccount(String subMenu) {
         myAccountMenu.click();
         Driver.get().findElement(By.xpath("//a[text()='" + subMenu + "']")).click();
 
     }
+}
 
 
 
