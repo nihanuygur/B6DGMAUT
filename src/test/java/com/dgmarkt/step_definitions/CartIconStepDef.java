@@ -180,4 +180,6 @@ public class  CartIconStepDef {
     public void theUserShouldBeAbleToSeeMessageOnTheShoppingPage() {
         assertTrue(shoppingCartPage.successMessage.isDisplayed());
     }
+
+
 }

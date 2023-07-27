@@ -1,6 +1,5 @@
 package com.dgmarkt.pages;
 
-import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.Driver;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -20,9 +19,6 @@ public class ShoppingCartPage extends BasePage{
     // first product's quantity area on the Shopping Cart Page
     @FindBy(xpath = "//div[@class='input-group btn-block']/input")
     public WebElement quantityArea;
-
-    @FindBy(css = ".alert.alert-danger.alert-dismissible")
-    public WebElement warningMessage;
 
     @FindBy(css = ".alert.alert-success.alert-dismissible")
     public WebElement successMessage;

@@ -105,6 +105,9 @@ public class HomePage extends BasePage {
     @FindBy (xpath = "//*[text()='Returning Customer']")
     public WebElement returningCustomer;
 
+    @FindBy (xpath = "//div[@class='container-inner']/h1")
+    public WebElement currentPageHeader;
+
     public void login() {
         dontShowAgain.click();
         closePopupButton.click();
@@ -166,6 +169,12 @@ public class HomePage extends BasePage {
         }
 
     }
+    public void navigateSubMenuOfMyAccount(String subMenu) {
+        myAccountMenu.click();
+        Driver.get().findElement(By.xpath("//a[text()='" + subMenu + "']")).click();
+
+    }
+
 
 
 
