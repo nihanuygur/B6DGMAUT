@@ -1,6 +1,4 @@
 package com.dgmarkt.pages;
-import com.dgmarkt.utilities.Driver;
-import org.openqa.selenium.By;
 
 import com.dgmarkt.utilities.BrowserUtils;
 import com.dgmarkt.utilities.Driver;
@@ -10,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-
 
 public class CategoriesBasePage extends BasePage {
 
@@ -36,6 +33,9 @@ public class CategoriesBasePage extends BasePage {
 
     @FindBy(xpath = "//div[@class='box-price']/p")
     public List<WebElement> pricesList;
+
+    @FindBy(xpath = "//*[@class='price']")
+    public WebElement firstProductsPrice;
 
     @FindBy(xpath = "//div[@class='list-group-item']")
     public WebElement PriceSlider;
@@ -104,7 +104,8 @@ public class CategoriesBasePage extends BasePage {
     }
 
     public void goToProductPage(String productName) {
-        WebElement product = Driver.get().findElement(By.xpath("//img[@title='" + productName + "']"));
+        WebElement product = Driver.get().findElement(By.xpath("//img[contains(@title,'" + productName +
+                "')][contains(@class,'responsive')]"));
         BrowserUtils.scrollToElement(product);
         BrowserUtils.clickWithJS(product);
         Driver.get().findElement(By.xpath("//button[@id='button-cart']")).click();
