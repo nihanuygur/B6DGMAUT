@@ -16,6 +16,7 @@ Feature: Cat-Subcategory-Add to Wish List icon function
 
   Scenario Outline: Verify that when the user hovers over the product, they can see the Add to Wish List icon.
     Given User choose Category "<Category Name>"
+    Then    The title is "<Category Name>"
     When  User hover over the Product "<Product>"
     Then  Verify that user can see "Add to Wish List"
     Examples:
@@ -28,8 +29,9 @@ Feature: Cat-Subcategory-Add to Wish List icon function
 
   Scenario Outline: Verify that the user can add products to their wish list, When the user clicks Add to Wish List icon.
     Given User choose Category "<Category Name>"
+    Then  The title is "<Category Name>"
     Given The user hover over "<Product>" product and clicks to the "Add to Wish List" icon
-    When The user clicks wish list! link from pop-up message and closes the message
+    When The user clicks "wish list" link from pop-up message and closes the message
     Then The user should see that the "<Product>" has been added to the Wish List page
     Examples:
       | Category Name   | Product              |
