@@ -4,7 +4,6 @@ Feature: My Account-Order History
   Users Story:
   As a user, I should be able to see and modify order history by clicking the Order History tab under the My Account module.
 
-
   Acceptance Criteria :
   AC1- Verify that the user can see the order history by clicking the Order History tab.
   AC2- Verify that the user can access the order detail by clicking the View icon
@@ -17,17 +16,19 @@ Feature: My Account-Order History
   AC6- Verify that the user can access the return details by clicking the ‘View’ icon
   AC7- Verify that the user can see the product information as ‘Returned’ on the ‘Order Details’ page
 
-  Given The user is on the main page
-  When  The user enters valid credentials for the user login
-  Given The user navigates to "Health & Beauty" category
-  When The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
-  When The user selects "eufy C1 Smart" product and clicks to the Add to Cart icon.
-  And  The user clicks shopping cart! link from pop-up message and closes the message
-  Given The user clicks Checkout button and navigates to Checkout Page
-  When The user should be able to complete checkout with valid inputs
+  Background:
+    Given The user is on the login panel
+    When The user enters the given credentials and clicks login button for the first authentication
+    Given The user is on the main page
+    When  The user enters valid credentials for the user login
+#    Given The user navigates to "Health & Beauty" category
+#    When The user selects "Capsule Plate 6pcs" product and clicks to the Add to Cart icon.
+#    When The user selects "eufy C1 Smart" product and clicks to the Add to Cart icon.
+#    And  The user clicks shopping cart! link from pop-up message and closes the message
+#    Given The user clicks Checkout button and navigates to Checkout Page
+#    When The user should be able to complete checkout with valid inputs
 
-  Scenario:
-    Given The user clicks My Account menu and navigates to "Order History" Page
+
   @B6DGMAUT-203
   Scenario: Verify that the user can see the order history by clicking the Order History tab.
     Given The user clicks My Account menu and navigates to "Order History" Page
