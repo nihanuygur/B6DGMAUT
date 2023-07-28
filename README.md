@@ -2,13 +2,9 @@
 Batch6 Automation Project
 # B6DGMAUT dgMarkt Automation Project  - BDD Framework With Cucumber - By 
 
-
-
 ### Codes and Tests Prepared By:
 
 euroTech Study SDET Course Batch6 Students
-
-Software Development In Test
 
 This Sprint's name is Fox which will be automation. Our PO Ali İhsan Deveci, SM Seda Ozleblebici and Team Lead Nihan Tasci Uygur. 
 We will use Java Programming Language, IntelliJ as IDE, Maven as build management tool, Jira as Project Management Tool, 
