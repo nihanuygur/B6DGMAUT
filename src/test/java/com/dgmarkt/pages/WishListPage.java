@@ -28,4 +28,8 @@ public class WishListPage extends BasePage{
         WebElement product = Driver.get().findElement(By.xpath("//*[@class='text-left'][contains(text(),'" + productName + "')]"));
         Assert.assertTrue(product.isDisplayed());
     }
+
+    public WebElement onGroupPage(String groupOptions){
+        return Driver.get().findElement(By.xpath("//a[text()='"+groupOptions+"']"));
+    }
 }

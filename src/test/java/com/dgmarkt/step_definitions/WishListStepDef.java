@@ -43,5 +43,9 @@ public class WishListStepDef {
     }
 
 
-
+    @Given("User is on the {string} page")
+    public void userIsOnThePage(String wishList) {
+       String actualPage = wishListPage.onGroupPage(wishList).getText();
+       Assert.assertEquals(wishList,actualPage);
+    }
 }
