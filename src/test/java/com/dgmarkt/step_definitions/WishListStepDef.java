@@ -19,12 +19,6 @@ public class WishListStepDef {
         categoriesBasePage.clickButtonGroup(wishListIcon);
 
     }
-    @Then("The page is {string}")
-    public void the_page_is(String expectedWishList) {
-        String actualTitle = wishListPage.onWishList.getText();
-
-        Assert.assertEquals(expectedWishList, actualTitle);
-    }
 
 
     @Then("Verify that the {int} is in My Wish List")

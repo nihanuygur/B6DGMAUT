@@ -15,4 +15,8 @@ public class AccountPage extends BasePage{
         Driver.get().findElement(By.xpath("//*[text()='" + menuName + "']")).click();
 
     }
+
+    public void chooseFromMyAccount(String myAccountList){
+        Driver.get().findElement(By.xpath("//a[text()='"+myAccountList+"']")).click();
+    }
 }
