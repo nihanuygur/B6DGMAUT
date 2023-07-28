@@ -49,8 +49,8 @@ mvn verify\
 •  In the Feature folder, We store our feature files separately, and it helps in the usability of the codes.\
 •  We use hook class as pre-and post-test implementations.\
 •  Step Definitions folder is the place where my actual test scripts are.\
-•  We added a screenshot interface; when the scenario fails, it takes a screenshot.
-•  For assertions/verifications, to compare expected and actual results We utilize Junit assertions.
-•  We also use tags for tests that We want to run in bulk.
-•  My framework is easy to maintain since We have elements stored in one centralized place. If any changes happen in the application about the elements, WE know where to go and how to fix it to run test scripts correctly.
+•  We added a screenshot interface; when the scenario fails, it takes a screenshot.\
+•  For assertions/verifications, to compare expected and actual results We utilize Junit assertions.\
+•  We also use tags for tests that We want to run in bulk.\
+•  Our framework is easy to maintain since We have elements stored in one centralized place. If any changes happen in the application about the elements, WE know where to go and how to fix it to run test scripts correctly.
 
