@@ -13,6 +13,19 @@ framework which will be Cucumber, JUnit, Maven, BDD, DDF, Page Object Model Desi
 First, we will test every function manually, then If there is a bug in a test case, we will create a Bug Report and will NOT write 
 any test code for unfixed bugs. But if there is NO bug we will write our automation code.
 
+# TEAM / Bug Hunters:
+- Ali Serdan
+- Bahadır Çolak
+- Burak Çolak
+- Furkan Tasdemir
+- Gülcan Akuklu
+- Keti Tosheva
+- Nazli Kartkaya
+- Nihan Tasci Uygur
+- Seyyit Duran
+- Tarik Asim
+
+
 ### Getting Started
 To get started with this framework, you will need to have the following software on your system.
 
