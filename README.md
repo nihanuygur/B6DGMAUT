@@ -45,7 +45,7 @@ mvn verify\
 •  To interact with browsers, We are utilizing Selenium WebDriver.\
 •  We used the Singleton pattern by declaring the constructor of the class as private so that no one instantiates the class outside of it. And declared a static method with return type as the object of the class which should check if the class is already instantiated once.\
 •  We used a Cucumber Scenario outline and example feature.\
-•  We have created my test cases in the feature files as-is.\
+•  We have created our test cases in the feature files as-is.\
 •  In the Feature folder, We store our feature files separately, and it helps in the usability of the codes.\
 •  We use hook class as pre-and post-test implementations.\
 •  Step Definitions folder is the place where my actual test scripts are.\
