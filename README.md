@@ -1,6 +1,6 @@
 
 Batch6 Automation Project
-# B6DGMAUT dgMarkt Automation Project  - BDD Framework With Cucumber - By 
+# B6DGMAUT dgMarkt Automation Project  - BDD Framework With Cucumber
 
 ### Codes and Tests Prepared By:
 
@@ -37,7 +37,7 @@ mvn verify\
 •  We used Cucumber-Junit and Cucumber Runner to orchestrate tests.\
 •  Inside the Cucumber runner, We used glues to connect feature files to step definitions.\
 •  We added the report plugin to Cucumber Runner to generate JSON and HTML reports.\
-•  We have a utilities package, which contains utility classes such as Configuration Reader.\
+•  We have a Utilities package, which contains utility classes such as Configuration Reader.\
 •  We are using Page Object Modelling to enhance test maintenance and reduce code duplication. This is one of the most famous Selenium approaches.\
 •  We use Page Object Classes to store and identify the elements that We work on.\
 •  We use the PageFactory class and initElements method to initialize them.\
