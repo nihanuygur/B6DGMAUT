@@ -4,9 +4,11 @@ Feature: Like Icon (Wish List) function
 
   Acceptance Criteria :
 
-  1-*Verify that the user should be able to *see products in the wish list
+  1-Verify that the user should be able to see products in the wish list
 
-  2-*Verify that the user should be able to *delete products from wish list or add to cart
+  2-Verify that the user should be able from products from wish list to add to cart
+
+  3-Verify that the user should be able to delete products from wish.
 
   Background:
     Given The user is on the login panel
