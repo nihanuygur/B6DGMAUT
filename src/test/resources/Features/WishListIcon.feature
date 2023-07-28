@@ -13,7 +13,7 @@ Feature: Cat-Subcategory-Add to Wish List icon function
     When  The user enters valid credentials for the user login
     Then The user should be able to login
 
-
+  @B6DGMAUT-228
   Scenario Outline: Verify that when the user hovers over the product, they can see the Add to Wish List icon.
     Given User choose Category "<Category Name>"
     Then    The title is "<Category Name>"
@@ -26,7 +26,7 @@ Feature: Cat-Subcategory-Add to Wish List icon function
       | Networking      | ASUS ZenWiFi XD6     |
       | TV Accessories  | Belkin adapter cable |
 
-
+  @B6DGMAUT-238
   Scenario Outline: Verify that the user can add products to their wish list, When the user clicks Add to Wish List icon.
     Given User choose Category "<Category Name>"
     Then  The title is "<Category Name>"

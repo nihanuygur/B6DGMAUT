@@ -22,18 +22,18 @@ Feature: Like Icon (Wish List) function
 
 
   Scenario: Verify that the user should be able to see the products in the wish list
-    Given    The page is "My Wish List"
+    Given    Verify that the user is on the "My Wish List" page
     Then    The user should see that the "C1 Smart Scale White" has been added to the Wish List page
 
 
   Scenario: Verify that the user should be able add to cart products from wish list
-    Given    The page is "My Wish List"
+    Given    Verify that the user is on the "My Wish List" page
     When    The user should be able "C1 Smart Scale White" to click "Add to Cart"
-    And     The user clicks shopping cart! link from pop-up message and closes the message
+    And     The user clicks "shopping cart!" link from pop-up message and closes the message
     Then    The user should see that the "C1 Smart Scale White" has been added to the Shopping Cart page
 
   Scenario: Verify that the user should be able to delete products from wish list
-    Given    The page is "My Wish List"
+    Given    Verify that the user is on the "My Wish List" page
     When     The user should be able "C1 Smart Scale White" to click "Remove"
-    Then    Verify that the and user can see the message
+    Then     Verify that the and user can see the message
 
